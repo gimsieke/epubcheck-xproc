@@ -1,0 +1,15 @@
+This will be a reimplementation and extension of epubcheck, using 
+XML Calabash and Saxon.
+
+It will include a CSS parser implemented in XSLT2 (in order to
+run checks against certain CSS constructs that don't translate
+well in kindlegen, for example).
+
+Custom Schematron files may be specified on the command line.
+
+Authors:
+Philipp Glatza, le-tex publshing services GmbH
+Gerrit Imsieke, le-tex publshing services GmbH
+Martin Kraetke, le-tex publshing services GmbH
+Grit Rolewski, le-tex publshing services GmbH
+
