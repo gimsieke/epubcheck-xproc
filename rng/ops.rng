@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://www.idpf.org/2007/ops" xml:lang="en"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+    <start>
+        <ref name="OPS.switch"/>
+    </start>
+    
+    <define name="OPS.switch">
+        <element name="switch">
+            <optional>
+                <attribute name="id">
+                    <data type="ID"/>
+                </attribute>
+            </optional>
+            <oneOrMore>
+                <element name="case">
+                    <optional>
+                        <attribute name="id">
+                            <data type="ID"/>
+                        </attribute>
+                    </optional>
+                    <attribute name="required-namespace">
+                        <text/>
+                    </attribute>
+                    <optional>
+                        <attribute name="required-modules">
+                            <text/>
+                        </attribute>
+                    </optional>
+                    <zeroOrMore>
+                        <ref name="OPS.switch"/>
+                    </zeroOrMore>
+                </element>
+            </oneOrMore>
+            <element name="default">
+                <optional>
+                    <attribute name="id">
+                        <data type="ID"/>
+                    </attribute>
+                </optional>
+                <zeroOrMore>
+                    <ref name="OPS.switch"/>
+                </zeroOrMore>
+            </element>
+        </element>
+    </define>
+    
+</grammar>

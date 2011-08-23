@@ -1,0 +1,169 @@
+<px:document-sequence xmlns:px='http://xmlcalabash.com/ns/document-sequence'
+                      port='result'
+                      xpl-file='file:/Users/Martin/Documents/workspace/epubcheck-xproc/ncxValid.xpl'
+                      xpl-line='31'
+                      dateTime='2011-08-23T15:40:46+01:00'>
+<px:document><ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="en">
+   <head>
+      <meta name="dtb:uid" content="http://www.snee.com/epub/pg23598"/>
+      <meta name="dtb:depth" content="1"/>
+      <meta name="dtb:totalPageCount" content="0"/>
+      <meta name="dtb:maxPageNumber" content="0"/>
+   </head>
+   <docTitle>
+      <text/>
+   </docTitle>
+   <navMap>
+      <navPoint id="i1" class="h1" playOrder="1">
+         <navLabel>
+            <text>Titel</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000020.xhtml#d3e20"/>
+      </navPoint>
+      <navPoint id="i2" class="h1" playOrder="2">
+         <navLabel>
+            <text>Seite 3</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000028.xhtml#d3e28"/>
+      </navPoint>
+      <navPoint id="i3" class="h1" playOrder="3">
+         <navLabel>
+            <text>Seite 4</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000148.xhtml#d3e148"/>
+      </navPoint>
+      <navPoint id="i4" class="h1" playOrder="4">
+         <navLabel>
+            <text>Seite 5</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000155.xhtml#d3e155"/>
+      </navPoint>
+      <navPoint id="i5" class="h1" playOrder="5">
+         <navLabel>
+            <text>Seite 6</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000162.xhtml#d3e162"/>
+      </navPoint>
+      <navPoint id="i6" class="h1" playOrder="6">
+         <navLabel>
+            <text>Seite 7</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000299.xhtml#d3e299"/>
+      </navPoint>
+      <navPoint id="i7" class="h1" playOrder="7">
+         <navLabel>
+            <text>Seite 8</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000306.xhtml#d3e306"/>
+      </navPoint>
+      <navPoint id="i8" class="h1" playOrder="8">
+         <navLabel>
+            <text>Seite 9</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000442.xhtml#d3e442"/>
+      </navPoint>
+      <navPoint id="i9" class="h1" playOrder="9">
+         <navLabel>
+            <text>Seite 10</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000588.xhtml#d3e588"/>
+      </navPoint>
+      <navPoint id="i10" class="h1" playOrder="10">
+         <navLabel>
+            <text>Seite 11</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000595.xhtml#d3e595"/>
+      </navPoint>
+      <navPoint id="i11" class="h1" playOrder="11">
+         <navLabel>
+            <text>Seite 12</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000682.xhtml#d3e682"/>
+      </navPoint>
+      <navPoint id="i12" class="h1" playOrder="12">
+         <navLabel>
+            <text>Seite 13</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000752.xhtml#d3e752"/>
+      </navPoint>
+      <navPoint id="i13" class="h1" playOrder="13">
+         <navLabel>
+            <text>Seite 14</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000759.xhtml#d3e759"/>
+      </navPoint>
+      <navPoint id="i14" class="h1" playOrder="14">
+         <navLabel>
+            <text>Seite 15</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_000883.xhtml#d3e883"/>
+      </navPoint>
+      <navPoint id="i15" class="h1" playOrder="15">
+         <navLabel>
+            <text>Seite 16</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_001048.xhtml#d3e1048"/>
+      </navPoint>
+      <navPoint id="i16" class="h1" playOrder="16">
+         <navLabel>
+            <text>Seite 17</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_001055.xhtml#d3e1055"/>
+      </navPoint>
+      <navPoint id="i17" class="h1" playOrder="17">
+         <navLabel>
+            <text>Seite 18</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_001062.xhtml#d3e1062"/>
+      </navPoint>
+      <navPoint id="i18" class="h1" playOrder="18">
+         <navLabel>
+            <text>Seite 19</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_001197.xhtml#d3e1197"/>
+      </navPoint>
+      <navPoint id="i19" class="h1" playOrder="19">
+         <navLabel>
+            <text>Seite 20</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_001204.xhtml#d3e1204"/>
+      </navPoint>
+      <navPoint id="i20" class="h1" playOrder="20">
+         <navLabel>
+            <text>Seite 21</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_001326.xhtml#d3e1326"/>
+      </navPoint>
+      <navPoint id="i21" class="h1" playOrder="21">
+         <navLabel>
+            <text>Seite 22</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_001443.xhtml#d3e1443"/>
+      </navPoint>
+      <navPoint id="i22" class="h1" playOrder="22">
+         <navLabel>
+            <text>Seite 23</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_001450.xhtml#d3e1450"/>
+      </navPoint>
+      <navPoint id="i23" class="h1" playOrder="23">
+         <navLabel>
+            <text>Seite 24</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_001591.xhtml#d3e1591"/>
+      </navPoint>
+      <navPoint id="i24" class="h1" playOrder="24">
+         <navLabel>
+            <text>Seite 25</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_001599.xhtml#d3e1599"/>
+      </navPoint>
+      <navPoint id="i25" class="h1" playOrder="25">
+         <navLabel>
+            <text>Seite 26</text>
+         </navLabel>
+         <content src="b978-3-551-05750-1_001741.xhtml#d3e1741"/>
+      </navPoint>
+   </navMap>
+</ncx></px:document>
+</px:document-sequence>
