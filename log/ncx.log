@@ -1,8 +1,8 @@
 <px:document-sequence xmlns:px='http://xmlcalabash.com/ns/document-sequence'
                       port='result'
                       xpl-file='file:/Users/Martin/Documents/workspace/epubcheck-xproc/ncxValid.xpl'
-                      xpl-line='31'
-                      dateTime='2011-08-23T15:40:46+01:00'>
+                      xpl-line='32'
+                      dateTime='2011-08-25T15:51:27+01:00'>
 <px:document><ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="en">
    <head>
       <meta name="dtb:uid" content="http://www.snee.com/epub/pg23598"/>

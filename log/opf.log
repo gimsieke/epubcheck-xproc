@@ -1,0 +1,80 @@
+<px:document-sequence xmlns:px='http://xmlcalabash.com/ns/document-sequence'
+                      port='result'
+                      xpl-file='file:/Users/Martin/Documents/workspace/epubcheck-xproc/opfValid.xpl'
+                      xpl-line='32'
+                      dateTime='2011-08-25T15:55:08+01:00'>
+<px:document><check xmlns:c="http://www.w3.org/ns/xproc-step" xmlns:opf="http://www.idpf.org/2007/opf">
+   
+      Dünne Luft
+      Jens Flottau
+      Hanser
+      2011
+      de
+      978-3-446-42979-6_Flottau_DünneLuft
+      
+   
+   
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <report href="TESTWRONGFILEREF.TEST"/>   
+   
+   
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+   
+   
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+   
+</check></px:document>
+</px:document-sequence>

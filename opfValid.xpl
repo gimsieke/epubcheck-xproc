@@ -4,6 +4,7 @@
     xmlns:c="http://www.w3.org/ns/xproc-step"
     xmlns:cx="http://xmlcalabash.com/ns/extensions" 
     xmlns:opf="http://www.idpf.org/2007/opf"
+    xmlns:sch="http://www.ascc.net/xml/schematron"
     version="1.0">
     <!--   * 
            * This step is used to validate the OPF file and perform some checks with Schematron 
@@ -23,7 +24,8 @@
 	</p:input>
 
 	<p:output port="result" sequence="true"/>
-
+	
+		
     <!--    * 
             * write output to log 
             * -->
@@ -70,7 +72,8 @@
     <!--    * 
             * stylesheet returns any elements with references to files not to be found in the ebup and vice versa     
             * -->
-    <p:xslt>
+    
+	<p:xslt>
         <p:input port="source"/>
         <p:input port="stylesheet" select="/*">
             <p:document href="xsl/filerefs.xsl"/>
@@ -79,8 +82,23 @@
             <p:empty/>
         </p:input>
     </p:xslt>
-    
-    
+	
+	
+	<!--
+	<p:sink/>
+	<p:validate-with-schematron assert-valid="false" name="opfSchValidate">
+		<p:input port="source">
+			<p:pipe port="result" step="opfInput"/>
+		</p:input>
+		<p:input port="schema">
+			<p:document href="sch/opf.sch"/>
+		</p:input>
+		<p:input port="parameters" sequence="true">
+			<p:empty/>
+		</p:input>
+	</p:validate-with-schematron>
+	
+	-->
 
 
 </p:declare-step>

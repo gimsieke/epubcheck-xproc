@@ -24,6 +24,7 @@
 	</p:input>
 
 	<p:output port="result" sequence="true"/>
+	
 
     <!--    * 
             * write output to log 
@@ -53,13 +54,13 @@
 
 	<!--   *
 	       * validate with Schematron 1.5, Calabash doesn't support ISO Schematron
-	       * 	COMMENT: 
-	       
+	       *  
+	-->       
 	 
 	<p:sink/>
 	<p:validate-with-schematron assert-valid="false">
 		<p:input port="source">
-			<p:document href="test\test\OEBPS\toc.ncx"/>
+			<p:pipe port="result" step="ncxInput"/>
 		</p:input>  
 		<p:input port="schema">
 			<p:document href="sch/ncx.sch"/>
@@ -68,7 +69,7 @@
 			<p:empty/>
 		</p:input>
 	</p:validate-with-schematron>
-	-->
+	
 
 	
 	
