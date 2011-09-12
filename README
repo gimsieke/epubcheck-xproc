@@ -7,6 +7,12 @@ well in kindlegen, for example).
 
 Custom Schematron files may be specified on the command line.
 
+
+Test:
+calabash -D xproc/test-unzip.xpl epubfile=[filename]
+Relative filenames are relative to the xproc subdir.
+
+
 Authors:
 Philipp Glatza, le-tex publshing services GmbH
 Gerrit Imsieke, le-tex publshing services GmbH
