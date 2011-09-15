@@ -7,11 +7,11 @@ well in kindlegen, for example).
 
 Custom Schematron files may be specified on the command line.
 
+THIS IS WORK IN PROGRESS. DON'T EXPECT ANYTHING YET.
 
-Test:
-calabash -D xproc/test-unzip.xpl epubfile=[filename]
+Sample invocation:
+$ calabash.sh xproc/test-unzip.xpl epubfile=../test/OPFIllegalElement.patch.epub
 Relative filenames are relative to the xproc subdir.
-
 
 Authors:
 Philipp Glatza, le-tex publshing services GmbH
