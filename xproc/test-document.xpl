@@ -7,7 +7,7 @@
 
   <p:identity>
     <p:input port="source">
-      <p:document href="test.html" />
+      <p:document href="../test/test.html" />
     </p:input>
   </p:identity>
 
