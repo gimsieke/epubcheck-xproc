@@ -1,6 +1,6 @@
 #!/bin/bash
 java \
-   -cp './resolver/resolver.jar;./resolver/;c:/Programme/calabash/calabash.jar;c:/Programme/calabash/lib' \
+   -cp './resolver/resolver.jar;./resolver/;./calabash/calabash.jar;./calabash/lib' \
    -Dfile.encoding=UTF8 \
    -Dxml.catalog.files=resolver/catalog.xml \
    -Dxml.catalog.staticCatalog=1 \
