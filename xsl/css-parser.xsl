@@ -7,6 +7,11 @@
   xmlns:css="http://www.w3.org/1996/css"
   exclude-result-prefixes="xs">
   
+  <!-- CSS parser by Grit Rolewski, le-tex publishing services GmbH.
+       Integrated into epubcheck-xproc by Gerrit Imsieke.
+       See ../README for copyright information
+    -->
+
   <xsl:import href="css-util.xsl"/>
 
 	<xsl:output indent="yes" />

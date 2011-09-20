@@ -7,6 +7,11 @@
     exclude-result-prefixes="xs"
 >
 
+  <!-- CSS parser by Grit Rolewski, le-tex publishing services GmbH.
+       Integrated into epubcheck-xproc by Gerrit Imsieke.
+       See ../README for copyright information
+    -->
+
 	<xsl:template name="declarations">
 		<xsl:param name="raw-declarations" />
 		<xsl:for-each select="tokenize($raw-declarations, ';\s*')[matches(., '\S')]">

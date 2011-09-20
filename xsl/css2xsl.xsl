@@ -7,9 +7,12 @@
   xmlns:css="http://www.w3.org/1996/css"
   xpath-default-namespace="http://www.w3.org/1996/css"
   >
-  
-  <xsl:import href="css-util.xsl"/>
 
+  <!-- CSS parser by Grit Rolewski, le-tex publishing services GmbH.
+       Integrated into epubcheck-xproc by Gerrit Imsieke.
+       See ../README for copyright information
+    -->
+  
   <xsl:namespace-alias stylesheet-prefix="xslout" result-prefix="xsl"/>
 
 	<xsl:output indent="yes" />
