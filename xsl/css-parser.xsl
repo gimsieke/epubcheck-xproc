@@ -32,7 +32,7 @@
   </xsl:template>
 
   <xsl:template match="html:style" mode="extract-css">
-    <xsl:sequence select="letex:extract-css(string-join(for $n in node() return $n, ''), 'intenal')" />
+    <xsl:sequence select="letex:extract-css(string-join(for $n in node() return $n, ''), 'internal')" />
   </xsl:template>
 
   <xsl:function name="letex:extract-css" as="element(*)*">
