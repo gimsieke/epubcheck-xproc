@@ -37,12 +37,12 @@
       <xsl:for-each select="ruleset[declaration]/selector">
         <xsl:variable name="current-node" select="." />
         <xsl:variable name="class-attribute" select="if (matches(., '@class')) then replace(replace(., '.+?(\[matches\(@class,.\(\^\|\\s\)(.+?)\(\\s\|\$\))?', '$2 '), '\s+', ' ') else ''" />
-        <xsl:variable name="internal" select="if (../@origin eq 'internal') then '1' else ''" as="xs:string" />
+        <xsl:variable name="internal" select="if (../@origin eq 'internal') then 100000 else 0" as="xs:integer" />
         <xsl:variable name="leading-zero" select="if (string-length(@position) eq 1) then '000' else 
                                                   if (string-length(@position) eq 2) then '00' else 
                                                   if (string-length(@position) eq 3) then '0' else ''" />
         <xslout:template match="{if (not(starts-with(., '*'))) then '*:' else ''}{.}" 
-          priority="{number(concat($internal, replace(@priority, ',', ''), '.', $leading-zero, @position))}" mode="add-css-info">
+          priority="{$internal + number(concat(replace(@priority, ',', ''), '.', $leading-zero, @position))}" mode="add-css-info">
           <xslout:param name="last-pos" tunnel="yes">0</xslout:param>
           <xslout:variable name="class" select="'{normalize-space($class-attribute)}'" />
           <xslout:variable name="pos" select="index-of(tokenize(@class, ' '), $class)" />
