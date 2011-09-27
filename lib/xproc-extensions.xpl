@@ -14,7 +14,15 @@
 </div>
 </p:documentation>
 
-<p:declare-step type="cx:metadata-extractor">
+  <p:declare-step type="cx:nvdl">
+    <p:input port="source" primary="true"/>
+    <p:input port="nvdl"/>
+    <p:input port="schemas" sequence="true"/>
+    <p:output port="result"/>
+    <p:option name="assert-valid" select="'true'"/>               <!-- boolean -->
+  </p:declare-step>
+  
+ <p:declare-step type="cx:metadata-extractor">
   <p:output port="result"/>
   <p:option name="href" required="true"/>
 </p:declare-step>
