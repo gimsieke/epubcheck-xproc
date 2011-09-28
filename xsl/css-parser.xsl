@@ -20,7 +20,10 @@
 
   <xsl:template match="/">
     <css xmlns="http://www.w3.org/1996/css">
-      <xsl:apply-templates select="html:html/html:head/(html:link[@rel eq 'stylesheet'] union html:style)" mode="extract-css" />
+      <xsl:variable name="extracted-css">
+				<xsl:apply-templates select="html:html/html:head/(html:link[@rel eq 'stylesheet'] union html:style)" mode="extract-css" />
+			</xsl:variable>
+			<xsl:apply-templates select="$extracted-css" mode="add-position" /> 
     </css>
   </xsl:template>
 
@@ -364,10 +367,10 @@
     <xsl:copy-of select="." />
   </xsl:template>
 
-  <xsl:template match="selector" mode="add-position">
+  <xsl:template match="*:selector" mode="add-position">
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current" />
-      <xsl:attribute name="position" select="count(parent::ruleset/preceding-sibling::ruleset)+1" />
+      <xsl:attribute name="position" select="count(parent::*:ruleset/preceding-sibling::*:ruleset)+1" />
       <xsl:apply-templates select="node()" mode="#current" />
     </xsl:copy>
   </xsl:template>
