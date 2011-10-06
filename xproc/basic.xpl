@@ -14,14 +14,16 @@
     <p:with-option name="epubdir" select="$epubdir" />
   </epub:opf>
 
-  <epub:validate-opf/>
+  <epub:validate-opf name="validate-opf"/>
 
-  <epub:validate-ncx>
+  <epub:validate-ncx name="validate-ncx">
     <p:with-option name="epubdir" select="$epubdir" />
     <p:with-option name="opfdir" select="//opfdir">
       <p:pipe step="opf" port="opfdir"/>
     </p:with-option>
   </epub:validate-ncx>
+
+  <p:sink/>
 
   <epub:validate-spinecontent>
     <p:with-option name="epubdir" select="$epubdir" />
@@ -33,5 +35,20 @@
     </p:input>
   </epub:validate-spinecontent>
 
+  <p:sink/>
+
+  <p:for-each name="reports">
+    <p:iteration-source>
+      <p:pipe step="validate-opf" port="report" />
+      <p:pipe step="validate-ncx" port="report" />
+    </p:iteration-source>
+    <p:identity>
+      <p:input port="source">
+        <p:pipe step="reports" port="current" />
+      </p:input>
+    </p:identity>
+  </p:for-each>
+
+  <p:wrap-sequence wrapper="report" name="joint-report"/>
 
 </p:pipeline>

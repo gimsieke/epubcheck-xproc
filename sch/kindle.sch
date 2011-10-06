@@ -11,15 +11,17 @@
             </report>
         </rule>
         <!-- ****Font-Sizing RegEx überprüfen -->
-        <rule context="*[@css:font-size]">
-            <report test="@css:font-size[([0-9]+)em] > 2">
+        <rule context="*[@css:font-size][matches(., '^[0-9.]+em$')]">
+            <report test="replace(@css:font-size, 'em$', '') cast as xs:double gt 2">
                 Font sizes larger than 2em are without effect
             </report>
-            <report test="@css:font-size[([0-9]+)px] > 48">
+          </rule>
+        <rule context="*[@css:font-size][matches(., '^[0-9.]+px$')]">
+            <report test="replace(@css:font-size, 'px$', '') cast as xs:double gt 48">
                 Font sizes larger than 2em are without effect
             </report>
+          </rule>
             
-        </rule>
     </pattern>
     
     <!--    *

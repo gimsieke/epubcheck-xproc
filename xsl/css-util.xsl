@@ -119,7 +119,7 @@
               <xsl:otherwise></xsl:otherwise>
             </xsl:choose>
           </xsl:variable>
-          <xsl:element name="declaration">
+          <xsl:element name="declaration" xmlns="http://www.w3.org/1996/css">
             <xsl:attribute name="property" select="concat('background-', $current-val)" />
             <xsl:attribute name="value" select="." />
           </xsl:element>
@@ -129,7 +129,7 @@
       <xsl:when test="$prop='font'">
         <xsl:for-each select="tokenize('style variant weight size family', ' ')">
           <xsl:variable name="current-pos" select="position()" />
-          <xsl:element name="declaration">
+          <xsl:element name="declaration" xmlns="http://www.w3.org/1996/css">
             <xsl:attribute name="property" select="concat('font-', .)" />
             <xsl:attribute name="value" select="tokenize($val, ' ')[if ($current-pos le 4) then (position() eq $current-pos) else (position() ge 5)]" />
           </xsl:element>              
@@ -154,7 +154,7 @@
               <xsl:otherwise></xsl:otherwise>
             </xsl:choose>
           </xsl:variable>
-          <xsl:element name="declaration">
+          <xsl:element name="declaration" xmlns="http://www.w3.org/1996/css">
             <xsl:attribute name="property" select="concat('list-style-', $current-val)" />
             <xsl:attribute name="value" select="." />
           </xsl:element>
@@ -163,7 +163,7 @@
 
       <xsl:otherwise>
         <xsl:message>WARNING! Shorthand property "<xsl:value-of select="$prop" />" has not been implemented, yet!</xsl:message>
-        <xsl:element name="declaration">
+        <xsl:element name="declaration" xmlns="http://www.w3.org/1996/css">
           <xsl:attribute name="property" select="$prop" />
           <xsl:attribute name="value" select="$val" />
         </xsl:element>
@@ -194,7 +194,7 @@
             <xsl:otherwise></xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
-        <xsl:element name="declaration">
+        <xsl:element name="declaration" xmlns="http://www.w3.org/1996/css">
           <xsl:attribute name="property" select="concat('border-', $current-pos, '-', $current-val)" />
           <xsl:attribute name="value" select="." />
         </xsl:element>

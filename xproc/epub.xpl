@@ -7,6 +7,7 @@
   xmlns:opf="http://www.idpf.org/2007/opf"
   xmlns:html="http://www.w3.org/1999/xhtml"
   xmlns:c="http://www.w3.org/ns/xproc-step"  
+	xmlns:epubcheck="http://www.le-tex.de/epubcheck"
   version="1.0">
 
   <p:import href="../lib/xproc-extensions.xpl" />
@@ -70,6 +71,9 @@
     <p:option name="epub-version" />
     <p:option name="content-type" />
     <p:output port="result" primary="true"/>
+    <p:output port="report">
+      <p:pipe step="try" port="report" />
+    </p:output>
     <p:input port="source" primary="true"/>  
 
     <p:variable name="validation-type" select="//validation[@target eq $content-type][@epubversion eq $epub-version]/@type">
@@ -80,45 +84,79 @@
       <p:document href="../conf/versionmap.xml" />
     </p:variable>
 
+    <!-- If $href is non-empty the document to be validated is read from the $href’d file,
+         otherwise from the default readable port. Errors in loading or parsing these 
+         data should be caught by invoking epub:validate-part in a try/catch clause. -->
     <epub:source-or-href-doc name="doc">
       <p:with-option name="href" select="if ($href ne '') then $href else ()" />
     </epub:source-or-href-doc>
-
-    <!--
-    <cx:message>
-      <p:with-option name="message" select="concat('vt: ', $epub-version)" />
-    </cx:message>
-    -->
 
     <p:load name="schema">
       <p:with-option name="href" select="$schema-file" />
     </p:load>
 
-    <p:choose>
-      <p:when test="$validation-type eq 'rng'">
-        <p:validate-with-relax-ng>
+    <p:try name="try">
+      <p:group>
+        <p:output port="report">
+          <p:inline>
+            <c:report>ok</c:report>
+          </p:inline>
+        </p:output>
+        <p:output port="result" primary="true"/>
+        <p:choose>
+          <p:when test="$validation-type eq 'rng'">
+            <p:validate-with-relax-ng>
+              <p:input port="source">
+                <p:pipe step="doc" port="result"/>
+              </p:input>
+              <p:input port="schema">
+                <p:pipe step="schema" port="result"/>
+              </p:input>
+            </p:validate-with-relax-ng>
+          </p:when>
+          <p:when test="$validation-type eq 'nvdl'">
+            <cx:nvdl>
+              <p:input port="source">
+                <p:pipe step="doc" port="result"/>
+              </p:input>
+              <p:input port="nvdl">
+                <p:pipe step="schema" port="result"/>
+              </p:input>
+              <p:input port="schemas">
+                <p:empty/>
+              </p:input>
+            </cx:nvdl>
+          </p:when>
+        </p:choose>
+      </p:group>
+      <p:catch name="catch1">
+        <p:output port="report">
+          <p:pipe port="result" step="fwd-errors"/>
+        </p:output>
+        <p:output port="result" primary="true" />
+
+        <p:identity>
           <p:input port="source">
-             <p:pipe step="doc" port="result"/>
+            <p:pipe step="catch1" port="error" />
           </p:input>
-          <p:input port="schema">
-            <p:pipe step="schema" port="result"/>
-          </p:input>
-        </p:validate-with-relax-ng>
-      </p:when>
-      <p:when test="$validation-type eq 'nvdl'">
-        <cx:nvdl>
+        </p:identity>
+        <p:add-attribute match="/*" attribute-name="href">
+          <p:with-option name="attribute-value" select="$href" />
+        </p:add-attribute>
+        <p:add-attribute match="/*" attribute-name="part" name="fwd-errors">
+          <p:with-option name="attribute-value" select="$content-type" />
+        </p:add-attribute>
+        
+        <p:sink/>
+        <p:identity>
           <p:input port="source">
-            <p:pipe step="doc" port="result"/>
+            <p:pipe step="doc" port="result" />
           </p:input>
-          <p:input port="nvdl">
-            <p:pipe step="schema" port="result"/>
-          </p:input>
-          <p:input port="schemas">
-            <p:empty/>
-          </p:input>
-        </cx:nvdl>
-      </p:when>
-    </p:choose>
+        </p:identity>
+      </p:catch>
+    </p:try>
+
+    <p:identity name="stdout" />
 
   </p:declare-step>
 
@@ -126,24 +164,88 @@
   <p:declare-step type="epub:validate-ncx" name="validate-ncx">
     <p:option name="epubdir" />
     <p:option name="opfdir" />
-    <p:input port="ocx" primary="true" />
+    <p:input port="source" primary="true" />
     <p:output port="result" primary="true" />
+    <p:output port="report">
+      <p:pipe step="try" port="report" />
+    </p:output>
 
-    <epub:validate-part>
-      <p:with-option name="href" select="concat($epubdir, '/', $opfdir, //opf:manifest/opf:item[@id eq 'ncx']/@href)" />
-      <p:with-option name="epub-version" select="/*/@version" />
-      <p:with-option name="content-type" select="'ncx'" />
-    </epub:validate-part>
+    <p:try name="try">
+      <p:group>
+        <p:output port="report">
+          <p:pipe step="validate-part" port="report" />
+        </p:output>
+        <p:output port="result" primary="true"/>
+        <epub:validate-part name="validate-part">
+          <p:with-option name="href" select="concat($epubdir, '/', $opfdir, //opf:manifest/opf:item[@id eq 'ncx']/@href)" />
+          <p:with-option name="epub-version" select="/*/@version" />
+          <p:with-option name="content-type" select="'ncx'" />
+        </epub:validate-part>
+      </p:group>
+      <p:catch name="catch1">
+        <p:output port="report">
+          <p:pipe port="result" step="fwd-errors"/>
+        </p:output>
+        <p:output port="result" primary="true">
+          <p:pipe step="validate-ncx" port="source" />
+        </p:output>
+        <p:identity>
+          <p:input port="source">
+            <p:pipe step="catch1" port="error" />
+          </p:input>
+        </p:identity>
+        <p:add-attribute match="/*" attribute-name="part">
+          <p:with-option name="attribute-value" select="'ncx'" />
+        </p:add-attribute>
+        <p:add-attribute match="/*" attribute-name="step" name="fwd-errors">
+          <p:with-option name="attribute-value" select="'find'" />
+        </p:add-attribute>
+        
+        <p:sink/>
+      </p:catch>
+    </p:try>
   </p:declare-step>
 
   <p:declare-step type="epub:validate-opf" name="validate-opf">
-    <p:input port="ocx" primary="true" />
+    <p:input port="source" primary="true" />
     <p:output port="result" primary="true" />
+    <p:output port="report">
+      <p:pipe step="try" port="report" />
+    </p:output>
 
-    <epub:validate-part>
-      <p:with-option name="epub-version" select="/*/@version" />
-      <p:with-option name="content-type" select="'opf'" />
-    </epub:validate-part>
+    <p:try name="try">
+      <p:group>
+        <p:output port="report">
+          <p:pipe step="validate-part" port="report" />
+        </p:output>
+        <p:output port="result" primary="true"/>
+        <epub:validate-part name="validate-part">
+          <p:with-option name="epub-version" select="/*/@version" />
+          <p:with-option name="content-type" select="'opf'" />
+        </epub:validate-part>
+      </p:group>
+      <p:catch name="catch1">
+        <p:output port="report">
+          <p:pipe port="result" step="fwd-errors"/>
+        </p:output>
+        <p:output port="result" primary="true">
+          <p:pipe step="validate-opf" port="source" />
+        </p:output>
+        <p:identity>
+          <p:input port="source">
+            <p:pipe step="catch1" port="error" />
+          </p:input>
+        </p:identity>
+        <p:add-attribute match="/*" attribute-name="part">
+          <p:with-option name="attribute-value" select="'opf'" />
+        </p:add-attribute>
+        <p:add-attribute match="/*" attribute-name="step" name="fwd-errors">
+          <p:with-option name="attribute-value" select="'find'" />
+        </p:add-attribute>
+        
+        <p:sink/>
+      </p:catch>
+    </p:try>
   </p:declare-step>
 
 
