@@ -1,0 +1,65 @@
+/* Global */
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family: district-thin;
+             src: url(fonts/distth.otf);
+             format("opentype");
+         }
+         /* Schrift */
+         #font-family-serif {
+             font-family:serif;
+         }
+         #font-family-sansserif {
+             font-family:sans-serif;
+         }
+         #font-family-sansserif {
+             font-family:sans-serif;
+         }
+         #font-family-cursive {
+             font-family:cursive;
+         }
+         #font-family-fantasy {
+             font-family:fantasy;
+         }
+         #font-family-monospace {
+             font-family:monospace;
+         }
+         #font-family-arial {
+             font-family:Arial;
+         }
+         #font-family-verdana {
+             font-family:Verdana;
+         }
+         #font-family-georgia {
+             font-family:Georgia;
+         }
+         #font-family-helvetica {
+             font-family:Helvetica;
+         }
+         #font-family-cambria {
+             font-family:Cambria;
+         }
+         #font-family-constantia {
+             font-family:Constantia;
+         }
+         #font-family-installed {
+             font-family:district-thin;
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before{
+            content:"Text davor "
+         }
+         #after:after{
+            content:"Text danach "
+         }

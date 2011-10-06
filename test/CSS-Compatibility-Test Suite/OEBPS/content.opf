@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.idpf.org/2007/opf"
+         version="2.0"
+         unique-identifier="PackageID">
+   <metadata xmlns:opf="http://www.idpf.org/2007/opf">
+      <dc:title>CSS Compatibility Test Suite</dc:title>
+      <dc:creator>le-tex publishing services GmbH</dc:creator>
+      <dc:publisher>le-tex publishing services GmbH</dc:publisher>
+      <dc:language>de</dc:language>
+      <dc:identifier id="PackageID"/>
+      <meta name="cover" content="idimages__le-tex-logo_jpg"/>
+   </metadata>
+   <manifest xmlns:opf="http://www.idpf.org/2007/opf">
+      <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+      <item id="idfonts__distth_otf" href="fonts/distth.otf"
+            media-type="application/vnd.ms-opentype"/>
+      <item id="cover" href="00000000000_cover.html" media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000018xhtml" href="bcss-testsuite_000018.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000068xhtml" href="bcss-testsuite_000068.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000123xhtml" href="bcss-testsuite_000123.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000156xhtml" href="bcss-testsuite_000156.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000264xhtml" href="bcss-testsuite_000264.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000450xhtml" href="bcss-testsuite_000450.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000553xhtml" href="bcss-testsuite_000553.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000587xhtml" href="bcss-testsuite_000587.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000679xhtml" href="bcss-testsuite_000679.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000723xhtml" href="bcss-testsuite_000723.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000878xhtml" href="bcss-testsuite_000878.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000935xhtml" href="bcss-testsuite_000935.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_000988xhtml" href="bcss-testsuite_000988.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idbcss-testsuite_001029xhtml" href="bcss-testsuite_001029.xhtml"
+            media-type="application/xhtml+xml"/>
+      <item id="idimages__le-tex-logo_jpg" href="images/le-tex-logo.jpg"
+            media-type="image/jpeg"/>
+      <item id="idstylesheet_css" href="stylesheet.css" media-type="text/css"/>
+   </manifest>
+   <spine toc="ncx">
+      <itemref idref="cover"/>
+      <itemref idref="idbcss-testsuite_000018xhtml"/>
+      <itemref idref="idbcss-testsuite_000068xhtml"/>
+      <itemref idref="idbcss-testsuite_000123xhtml"/>
+      <itemref idref="idbcss-testsuite_000156xhtml"/>
+      <itemref idref="idbcss-testsuite_000264xhtml"/>
+      <itemref idref="idbcss-testsuite_000450xhtml"/>
+      <itemref idref="idbcss-testsuite_000553xhtml"/>
+      <itemref idref="idbcss-testsuite_000587xhtml"/>
+      <itemref idref="idbcss-testsuite_000679xhtml"/>
+      <itemref idref="idbcss-testsuite_000723xhtml"/>
+      <itemref idref="idbcss-testsuite_000878xhtml"/>
+      <itemref idref="idbcss-testsuite_000935xhtml"/>
+      <itemref idref="idbcss-testsuite_000988xhtml"/>
+      <itemref idref="idbcss-testsuite_001029xhtml"/>
+   </spine>
+   <guide>
+      <reference type="cover" title="cover" href="00000000000_cover.html"/>
+      <reference type="text" title="idbcss-testsuite_000018xhtml"
+                 href="bcss-testsuite_000018.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000068xhtml"
+                 href="bcss-testsuite_000068.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000123xhtml"
+                 href="bcss-testsuite_000123.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000156xhtml"
+                 href="bcss-testsuite_000156.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000264xhtml"
+                 href="bcss-testsuite_000264.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000450xhtml"
+                 href="bcss-testsuite_000450.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000553xhtml"
+                 href="bcss-testsuite_000553.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000587xhtml"
+                 href="bcss-testsuite_000587.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000679xhtml"
+                 href="bcss-testsuite_000679.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000723xhtml"
+                 href="bcss-testsuite_000723.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000878xhtml"
+                 href="bcss-testsuite_000878.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000935xhtml"
+                 href="bcss-testsuite_000935.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_000988xhtml"
+                 href="bcss-testsuite_000988.xhtml"/>
+      <reference type="other.text" title="idbcss-testsuite_001029xhtml"
+                 href="bcss-testsuite_001029.xhtml"/>
+   </guide>
+</package>

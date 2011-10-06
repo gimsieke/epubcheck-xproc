@@ -18,8 +18,6 @@
     
     <p:import href="validate.xpl"/>
     
-    
-    
     <epub:validate-with-jing>
         <p:with-option name="input" select="$input"/>
         <p:with-option name="schema" select="$schema"/>
