@@ -26,12 +26,12 @@ $ ./calabash.sh -o result=report.html  xproc/kindle.xpl epubdir=../test/CSS-Comp
 Relative filenames are relative to the xproc subdir.
 
 Authors:
-Philipp Glatza, le-tex publshing services GmbH
-Gerrit Imsieke, le-tex publshing services GmbH
-Martin Kraetke, le-tex publshing services GmbH
-Grit Rolewski, le-tex publshing services GmbH
-Jan Schilbach, le-tex publshing services GmbH
-Lars Wittmar, le-tex publshing services GmbH
+Philipp Glatza, le-tex publishing services GmbH
+Gerrit Imsieke, le-tex publishing services GmbH
+Martin Kraetke, le-tex publishing services GmbH
+Grit Rolewski, le-tex publishing services GmbH
+Jan Schilbach, le-tex publishing services GmbH
+Lars Wittmar, le-tex publishing services GmbH
 
 Copyright (c) 2011, le-tex publishing services GmbH
 All rights reserved.
