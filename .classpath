@@ -6,6 +6,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="java/lib/swt.jar"/>
+	<classpathentry kind="lib" path="java/lib/swt_windows_x86.jar"/>
+	<classpathentry kind="lib" path="calabash/calabash.jar"/>
 	<classpathentry kind="output" path="java/build/classes"/>
 </classpath>

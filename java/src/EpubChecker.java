@@ -1,3 +1,13 @@
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.sql.Array;
+
+import net.sf.saxon.s9api.SaxonApiException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Text;
@@ -91,10 +101,13 @@ public class EpubChecker {
 		        case SWT.Selection:
 		          System.out.println("validateButton pressed " + selectProfileCombo.getText() + " " + pathToEpubText.getText());
 		          openBrowser();
+		          checkEpub(pathToEpubText.getText());
 		          
 		          break;
 		        }
 		      }
+
+
 		    });
 		
 		outputArea = new Canvas(shell, SWT.BORDER);
@@ -141,6 +154,24 @@ public class EpubChecker {
 		return shell;
 	}
 	
+	protected void checkEpub(String pathToEpub) {
+		
+		com.xmlcalabash.drivers.Main calabash = new com.xmlcalabash.drivers.Main();
+		String[] args = {"-o", "result=report.html" ,"xproc/kindle.xpl" , "epubdir=../test/CSS-Compatibility-Test-Suite"};
+		try {
+			calabash.run(args);
+		} catch (SaxonApiException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public void openBrowser(){
 		browser = new Browser(outputArea, SWT.NONE);
         browser.setBounds(outputArea.getClientArea());
@@ -150,4 +181,5 @@ public class EpubChecker {
 	public void resizeBrowser(){
 		browser.setBounds(outputArea.getClientArea());
 	}
+	
 }
