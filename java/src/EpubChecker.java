@@ -1,3 +1,8 @@
+import java.io.File;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Text;
@@ -91,10 +96,13 @@ public class EpubChecker {
 		        case SWT.Selection:
 		          System.out.println("validateButton pressed " + selectProfileCombo.getText() + " " + pathToEpubText.getText());
 		          openBrowser();
+		          checkEpub();
 		          
 		          break;
 		        }
 		      }
+
+
 		    });
 		
 		outputArea = new Canvas(shell, SWT.BORDER);
@@ -141,6 +149,12 @@ public class EpubChecker {
 		return shell;
 	}
 	
+	protected void checkEpub() {
+		
+		com.xmlcalabash.drivers.Main calabash;
+		
+	}
+
 	public void openBrowser(){
 		browser = new Browser(outputArea, SWT.NONE);
         browser.setBounds(outputArea.getClientArea());
@@ -150,4 +164,5 @@ public class EpubChecker {
 	public void resizeBrowser(){
 		browser.setBounds(outputArea.getClientArea());
 	}
+	
 }
