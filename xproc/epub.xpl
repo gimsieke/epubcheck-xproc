@@ -320,5 +320,64 @@
   </p:declare-step>
 
 
+  <p:declare-step type="epub:schematron-spinehtml" name="schematron-spinehtml">
+    <p:option name="schematron" />
+
+    <p:input port="source" primary="true" />
+    <p:output port="result" primary="true">
+      <p:pipe step="patch" port="result" />
+    </p:output>
+    <p:output port="report">
+      <p:pipe step="schematron" port="report" />
+    </p:output>
+
+    <p:load name="load">
+      <p:with-option name="href" select="$schematron" />
+    </p:load>
+
+    <p:validate-with-schematron name="schematron" assert-valid="false">
+      <p:input port="source">
+        <p:pipe step="schematron-spinehtml" port="source" />
+      </p:input>
+      <p:input port="schema">
+        <p:pipe step="load" port="result"/>
+      </p:input>
+      <p:input port="parameters">
+        <p:inline>
+          <c:param-set>
+            <c:param name="allow-foreign" value="true" />
+            <c:param name="select-contexts" value="//" />
+            <c:param name="visit-text" value="neither-true-nor-false" />
+          </c:param-set>
+        </p:inline>
+      </p:input>
+    </p:validate-with-schematron>
+
+    <p:sink/>
+
+    <p:xslt name="create-patch-xsl">
+      <p:input port="source">
+  	    <p:pipe step="schematron" port="report"/>
+      </p:input>
+      <p:input port="stylesheet">
+        <p:document href="../xsl/svrl2xsl.xsl"/>
+      </p:input>
+      <p:input port="parameters"><p:empty/></p:input>
+    </p:xslt>
+    <p:sink/>
+
+
+    <p:xslt name="patch">
+      <p:input port="source">
+        <p:pipe step="schematron-spinehtml" port="source" />
+      </p:input>
+      <p:input port="stylesheet">
+        <p:pipe step="create-patch-xsl" port="result" />
+      </p:input>
+      <p:input port="parameters"><p:empty/></p:input>
+    </p:xslt>
+  </p:declare-step>
+
+
 </p:library>
 

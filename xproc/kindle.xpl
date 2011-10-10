@@ -16,9 +16,6 @@
 
   <p:sink/>
 
-  <!-- Now let's expand the CSS in the spine contents. 
-       We'll have to reinstantiate our opf step because 
-       the imported one is out of scope. -->
   <epub:opf name="opf">
     <p:with-option name="epubdir" select="$epubdir" />
   </epub:opf>
@@ -30,18 +27,8 @@
     </p:with-option>
   </epub:css-expanded-spinecontent>
 
-  <p:validate-with-schematron name="schematron" assert-valid="false">
-    <p:input port="schema">
-      <p:document href="../sch/kindle.sch"/>
-    </p:input>
-  </p:validate-with-schematron>
-
-  <p:sink/>
-
-  <p:identity>
-    <p:input port="source">
-      <p:pipe step="schematron" port="report" />
-    </p:input>
-  </p:identity>
+  <epub:schematron-spinehtml>
+    <p:with-option name="schematron" select="'../sch/kindle.sch'" />
+  </epub:schematron-spinehtml>
 
 </p:pipeline>

@@ -1,96 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://purl.oclc.org/dsdl/schematron">
-    <ns uri="http://www.le-tex.de/css/namespace" prefix="css"/>
-    <!--    *
-            * font rules 
-            * -->
-    <pattern id="css-font">
-        <rule context="*[@css:font-family]">
-            <report test="@css:font-family">
-                font-family not supported
-            </report>
-        </rule>
-        <!-- ****Font-Sizing RegEx überprüfen -->
-        <rule context="*[@css:font-size][matches(., '^[0-9.]+em$')]">
-            <report test="replace(@css:font-size, 'em$', '') cast as xs:double gt 2">
-                Font sizes larger than 2em are without effect
-            </report>
-          </rule>
-        <rule context="*[@css:font-size][matches(., '^[0-9.]+px$')]">
-            <report test="replace(@css:font-size, 'px$', '') cast as xs:double gt 48">
-                Font sizes larger than 2em are without effect
-            </report>
-          </rule>
-            
-    </pattern>
+<s:schema
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns:s="http://purl.oclc.org/dsdl/schematron"
+  >
+
+  <s:ns uri="http://www.w3.org/1996/css" prefix="css"/>
+
+  <!-- *
+       * font rules 
+       * -->
+  <s:pattern id="css-font">
+    <s:rule context="*[@css:font-family]">
+      <s:report test="@css:font-family">
+        <s:span class="severity">WRN</s:span>
+        <s:span class="msgid">SCH_Kindle_0001</s:span>
+        font-family not supported (<s:value-of select="@css:font-family"/>)
+      </s:report>
+    </s:rule>
+    <s:rule context="*[@css:font-size][matches(., '^[0-9.]+em$')]">
+      <s:report test="replace(@css:font-size, 'em$', '') cast as xs:double gt 2">
+        <s:span class="severity">WRN</s:span>
+        <s:span class="msgid">SCH_Kindle_0002</s:span>
+        Font sizes larger than 2em are without effect (<s:value-of select="@css:font-size"/>)
+      </s:report>
+    </s:rule>
+    <s:rule context="*[@css:font-size][matches(., '^[0-9.]+px$')]">
+      <s:report test="replace(@css:font-size, 'px$', '') cast as xs:double gt 48">
+        <s:span class="severity">WRN</s:span>
+        <s:span class="msgid">SCH_Kindle_0003</s:span>
+        Font sizes larger than 48px are without effect (<s:value-of select="@css:font-size"/>)
+      </s:report>
+    </s:rule>
+  </s:pattern>
     
-    <!--    *
-            * text rules 
-            * -->
-    <pattern id="css-text">
-        <rule context="*[@css:text-transform]">
-            <report test="@css:text-transform eq 'lowercase'">
+  <!-- *
+       * text rules 
+       * -->
+    <s:pattern id="css-text">
+        <s:rule context="*[@css:text-transform]">
+            <s:report test="@css:text-transform eq 'lowercase'">
                 text-transform:lowercase not supported
-            </report>
-            <report test="@css:text-transform eq 'uppercase'">
+            </s:report>
+            <s:report test="@css:text-transform eq 'uppercase'">
                 text-transform:uppercase not supported
-            </report>
-            <report test="@css:text-transform eq 'capitalize'">
+            </s:report>
+            <s:report test="@css:text-transform eq 'capitalize'">
                 text-transform:capitalize not supported
-            </report>
-        </rule>
-        <rule context="*[@css:text-decoration]">
-            <report test="@css:text-decoration eq 'overline'">
+            </s:report>
+        </s:rule>
+        <s:rule context="*[@css:text-decoration]">
+            <s:report test="@css:text-decoration eq 'overline'">
                 text-decoration:overline not supported
-            </report>
-            <report test="@css:text-decoration eq 'blink'">
+            </s:report>
+            <s:report test="@css:text-decoration eq 'blink'">
                 text-decoration:blink not supported
-            </report>
-        </rule>
-    </pattern>
+            </s:report>
+        </s:rule>
+    </s:pattern>
     <!--    *
             * padding rules 
             * -->    
-    <pattern id="css-padding">
-        <rule context="*[@css:padding]">
-            <report test="@css:padding">
+    <s:pattern id="css-padding">
+        <s:rule context="*[@css:padding]">
+            <s:report test="@css:padding">
                 padding not supported
-            </report>
-        </rule>
-        <rule context="*[@css:padding-right]">
-            <report test="@css:padding-right">
+            </s:report>
+        </s:rule>
+        <s:rule context="*[@css:padding-right]">
+            <s:report test="@css:padding-right">
                 padding-right not supported
-            </report>
-        </rule>
-        <rule context="*[@css:padding-left]">
-            <report test="@css:padding-left">
+            </s:report>
+        </s:rule>
+        <s:rule context="*[@css:padding-left]">
+            <s:report test="@css:padding-left">
                 padding-left not supported
-            </report>
-        </rule>
-        <rule context="*[@css:padding-bottom]">
-            <report test="@css:padding-bottom">
+            </s:report>
+        </s:rule>
+        <s:rule context="*[@css:padding-bottom]">
+            <s:report test="@css:padding-bottom">
                 padding-bottom not supported
-            </report>
-        </rule>
-        <rule context="*[@css:padding-top]">
-            <report test="@css:padding-top">
+            </s:report>
+        </s:rule>
+        <s:rule context="*[@css:padding-top]">
+            <s:report test="@css:padding-top">
                 padding-top not supported
-            </report>
-        </rule>
-    </pattern>
+            </s:report>
+        </s:rule>
+    </s:pattern>
     <!--    *
             * float rules 
             * -->    
-    <pattern id="css-floats">
-        <rule context="*[@css:float]">
-            <report test="@css:float">
+    <s:pattern id="css-floats">
+        <s:rule context="*[@css:float]">
+            <s:report test="@css:float">
                 float not supported
-            </report>
-        </rule>
-        <rule context="*[@css:clear]">
-            <report test="@css:clear">
+            </s:report>
+        </s:rule>
+        <s:rule context="*[@css:clear]">
+            <s:report test="@css:clear">
                 clear not supported
-            </report>
-        </rule>
-    </pattern>
-</schema>
+            </s:report>
+        </s:rule>
+    </s:pattern>
+</s:schema>
