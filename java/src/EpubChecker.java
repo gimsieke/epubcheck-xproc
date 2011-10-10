@@ -157,7 +157,7 @@ public class EpubChecker {
 	protected void checkEpub(String pathToEpub) {
 		
 		com.xmlcalabash.drivers.Main calabash = new com.xmlcalabash.drivers.Main();
-		String[] args = {"-o", "result=report.html" ,"xproc/kindle.xpl" , "epubdir=../test/CCC-Compatibility-Test\\ Suite"};
+		String[] args = {"-o", "result=report.html" ,"xproc/kindle.xpl" , "epubdir=../test/CSS-Compatibility-Test-Suite"};
 		try {
 			calabash.run(args);
 		} catch (SaxonApiException e) {
