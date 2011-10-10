@@ -1,7 +1,7 @@
-This will be a reimplementation and extension of epubcheck, using 
+This is a reimplementation and extension of epubcheck, using 
 XML Calabash and Saxon.
 
-It will include a CSS parser implemented in XSLT2 (in order to
+It includes a CSS parser implemented in XSLT2 (in order to
 run checks against certain CSS constructs that don't translate
 well in kindlegen, for example).
 
@@ -9,8 +9,20 @@ Custom Schematron files may be specified on the command line.
 
 THIS IS WORK IN PROGRESS. DON'T EXPECT ANYTHING YET.
 
+In particular, not all current epubcheck functionality has been
+implemented.
+
+To do:
+- calabash extension for reading image information (type,
+  resolution, color space)
+- ...
+
+For the time being, you'll have to manually check out and update
+http://epubcheck.googlecode.com/svn/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck
+as epubcheck-xproc/epubcheck
+
 Sample invocation:
-$ calabash.sh xproc/test.xpl epubdir=../tmp
+$ ./calabash.sh -o result=report.html  xproc/kindle.xpl epubdir=../test/CSS-Compatibility-Test\ Suite
 Relative filenames are relative to the xproc subdir.
 
 Authors:
@@ -18,7 +30,8 @@ Philipp Glatza, le-tex publshing services GmbH
 Gerrit Imsieke, le-tex publshing services GmbH
 Martin Kraetke, le-tex publshing services GmbH
 Grit Rolewski, le-tex publshing services GmbH
-
+Jan Schilbach, le-tex publshing services GmbH
+Lars Wittmar, le-tex publshing services GmbH
 
 Copyright (c) 2011, le-tex publishing services GmbH
 All rights reserved.
