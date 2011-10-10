@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="EpubChecker.makejar" default="makejar" basedir=".">
-	<target name="makejar" description="Create a jar for the EpubChecker">
-		<jar jarfile="EpubChecker.jar" includes="*.class" basedir="bin"/>
-	</target>
-	</project>
