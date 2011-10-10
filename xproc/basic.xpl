@@ -4,11 +4,22 @@
   xmlns:css="http://www.w3.org/1996/css"
 	xmlns:epub="http://www.idpf.org/2007/ops"
   type="epub:basic"
+  name="basic"
   version="1.0">
 
   <p:option name="epubdir" />
   
   <p:import href="epub.xpl" />
+
+  <p:output port="opfout">
+    <p:pipe step="opf" port="result" />
+  </p:output>
+  <p:output port="opfdir">
+    <p:pipe step="opf" port="opfdir" />
+  </p:output>
+  <p:output port="reports" sequence="true">
+    <p:pipe step="reports" port="result" />
+  </p:output>
 
   <epub:opf name="opf">
     <p:with-option name="epubdir" select="$epubdir" />
@@ -38,6 +49,7 @@
   <p:sink/>
 
   <p:for-each name="reports">
+    <p:output port="result" sequence="true" />
     <p:iteration-source>
       <p:pipe step="validate-opf" port="report" />
       <p:pipe step="validate-ncx" port="report" />

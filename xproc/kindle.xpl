@@ -10,21 +10,20 @@
   <p:import href="epub.xpl" />
   <p:import href="basic.xpl" />
 
-  <epub:basic>
+  <epub:basic name="basic">
     <p:with-option name="epubdir" select="$epubdir" />
   </epub:basic>
 
   <p:sink/>
 
-  <epub:opf name="opf">
-    <p:with-option name="epubdir" select="$epubdir" />
-  </epub:opf>
-
   <epub:css-expanded-spinecontent>
     <p:with-option name="epubdir" select="$epubdir" />
     <p:with-option name="opfdir" select="//opfdir">
-      <p:pipe step="opf" port="opfdir"/>
+      <p:pipe step="basic" port="opfdir"/>
     </p:with-option>
+    <p:input port="opf">
+      <p:pipe step="basic" port="opfout" />
+    </p:input>
   </epub:css-expanded-spinecontent>
 
   <epub:schematron-spinehtml>
