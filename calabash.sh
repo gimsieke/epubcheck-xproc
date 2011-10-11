@@ -1,6 +1,17 @@
 #!/bin/bash
+cygwin=false;
+case "`uname`" in
+  CYGWIN*) cygwin=true;
+esac
+
+CLASSPATH='./resolver/resolver.jar:./resolver/:./calabash/calabash.jar:./calabash/lib'
+
+if $cygwin; then
+  CLASSPATH=`cygpath --path -w $CLASSPATH`
+fi
+
 java \
-   -cp './resolver/resolver.jar;./resolver/;./calabash/calabash.jar;./calabash/lib' \
+   -cp $CLASSPATH \
    -Dfile.encoding=UTF8 \
    -Dxml.catalog.files=resolver/catalog.xml \
    -Dxml.catalog.staticCatalog=1 \
