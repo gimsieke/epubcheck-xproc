@@ -21,14 +21,26 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.browser.Browser;
+import java.awt.Desktop;
+import java.net.URI;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.events.MouseTrackListener;
+import org.eclipse.swt.events.PaintEvent;
+import org.eclipse.swt.events.PaintListener;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Cursor;
+
 
 public class EpubChecker {
 	Button validateButton, browseButton, manageProfilesButton;
 	Combo selectProfileCombo;
 	Text pathToEpubText, outputText;
-	Canvas outputArea;
+	Canvas outputArea, logoBox;
 	Browser browser;
 	Label pathLabel;
+	Image leTexLogo;
+	Cursor cursor;
 		
 	//private static final String TEMPDIR = System.getProperty("java.io.tmpdir");
 	private static final String[] profiles = {"EPUB", "MOBI", "IPAD"};
@@ -101,7 +113,7 @@ public class EpubChecker {
 		        case SWT.Selection:
 		          System.out.println("validateButton pressed " + selectProfileCombo.getText() + " " + pathToEpubText.getText());
 		          openBrowser();
-		          checkEpub(pathToEpubText.getText());
+		          //checkEpub(pathToEpubText.getText());
 		          
 		          break;
 		        }
@@ -111,7 +123,66 @@ public class EpubChecker {
 		    });
 		
 		outputArea = new Canvas(shell, SWT.BORDER);
+
+		final Cursor cursor = new Cursor(display, SWT.CURSOR_HAND);
+		logoBox = new Canvas(shell, SWT.NONE);
+		logoBox.addPaintListener(new PaintListener() {
+			public void paintControl(PaintEvent e) {
+				leTexLogo = new Image(display, "Logo_Web_BGtrans_24.png");
+				e.gc.drawImage(leTexLogo, 0, 0);
+			}
+		});
+		
+		logoBox.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseUp(MouseEvent arg0) {
+				// TODO Auto-generated method stub
 				
+			}
+			
+			@Override
+			public void mouseDown(MouseEvent d) {
+				Desktop desktop = Desktop.getDesktop();
+				try {
+					desktop.browse(new URI("http://www.le-tex.de"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (URISyntaxException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			@Override
+			public void mouseDoubleClick(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		logoBox.addMouseTrackListener(new MouseTrackListener() {
+			
+			@Override
+			public void mouseHover(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				logoBox.setCursor(cursor);
+			}
+			
+			@Override
+			public void mouseExit(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEnter(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				logoBox.setCursor(cursor);
+			}
+		});
+
 		//layouting with formlayout
 		FormData data = new FormData();
 		data.top = new FormAttachment(0, 0);
@@ -121,7 +192,7 @@ public class EpubChecker {
 		FormData data2 = new FormData();
 		data.top = new FormAttachment(0, 0);
 		data2.left = new FormAttachment(pathLabel, 5);
-		data2.right = new FormAttachment(80, 0);
+		data2.right = new FormAttachment(70, 0);
 		pathToEpubText.setLayoutData(data2);
 		
 		FormData data3 = new FormData();
@@ -144,6 +215,12 @@ public class EpubChecker {
 		data7.left = new FormAttachment(manageProfilesButton, 0);
 		validateButton.setLayoutData(data7);
 		
+		FormData data8 = new FormData(142,58);
+		data8.top = new FormAttachment(0, 0);
+		data8.left = new FormAttachment(browseButton, 10);
+		data8.bottom = new FormAttachment(outputArea, 0);
+		logoBox.setLayoutData(data8);
+
 		FormData data6 = new FormData();
 		data6.top = new FormAttachment(selectProfileCombo, 10);
 		data6.left = new FormAttachment(0, 0); 
@@ -175,7 +252,7 @@ public class EpubChecker {
 	public void openBrowser(){
 		browser = new Browser(outputArea, SWT.NONE);
         browser.setBounds(outputArea.getClientArea());
-        browser.setUrl("http://google.com");
+        browser.setUrl("file://./report.html");
 	}
 	
 	public void resizeBrowser(){
