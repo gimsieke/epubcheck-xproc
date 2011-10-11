@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -30,6 +31,11 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.browser.Browser;
 import java.awt.Desktop;
 import java.net.URI;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.MouseTrackListener;
@@ -37,6 +43,7 @@ import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Cursor;
+
 
 
 public class EpubChecker {
@@ -48,6 +55,7 @@ public class EpubChecker {
 	Label pathLabel;
 	Image leTexLogo;
 	Cursor cursor;
+	
 		
 	//private static final String TEMPDIR = System.getProperty("java.io.tmpdir");
 	private static final String[] profiles = {"EPUB", "MOBI", "IPAD"};
@@ -119,17 +127,18 @@ public class EpubChecker {
 		        switch (e.type) {
 		        case SWT.Selection:
 		          System.out.println("validateButton pressed " + selectProfileCombo.getText() + " " + pathToEpubText.getText());
-		          openBrowser();
+		          
 					try {
 						File tempdir = createTempDir();
-						
+						File resultfile = new File(tempdir.getAbsolutePath() + File.separatorChar + "result.html");
 						System.out.println(tempdir.getAbsolutePath());
 						unzip(pathToEpubText.getText(), tempdir);
-						checkEpub(tempdir);
+						checkEpub(tempdir, "kindle", resultfile);
+						openBrowser(resultfile);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-		          
+					
 		          
 		          break;
 		        }
@@ -199,6 +208,8 @@ public class EpubChecker {
 			}
 		});
 
+		
+	    
 		//layouting with formlayout
 		FormData data = new FormData();
 		data.top = new FormAttachment(0, 0);
@@ -247,28 +258,56 @@ public class EpubChecker {
 		return shell;
 	}
 	
-	protected void checkEpub(File pathToEpub) {
+	protected void checkEpub(File pathToEpub, String profile, File pathToReport) {
+
+		char sc = File.separatorChar;
+		char sep = File.pathSeparatorChar;
+		String classpath = "./resolver/resolver.jar:./resolver/:./calabash/calabash.jar:./calabash/lib";
 		
-		com.xmlcalabash.drivers.Main calabash = new com.xmlcalabash.drivers.Main();
-		URI uritoepub = pathToEpub.toURI();
-		String[] args = {"-o", "result=report.html" ,"xproc/kindle.xpl" , "epubdir=" + uritoepub.getRawPath()};
+		classpath = classpath.replace('/', sc);
+		classpath = classpath.replace(':', sep);
+		
+		String command = "java -cp " + classpath + " -Dfile.encoding=UTF8 -Dxml.catalog.files=resolver/catalog.xml -Dxml.catalog.staticCatalog=1 -Dxml.catalog.verbosity=9 -Xmx1536m -Xss1024k com.xmlcalabash.drivers.Main -E org.apache.xml.resolver.tools.CatalogResolver -U org.apache.xml.resolver.tools.CatalogResolver -o result=" + pathToReport.toURI().getPath() + " xproc/" + profile + ".xpl epubdir="+ pathToEpub.toURI().getPath();
+		
 		try {
-			System.out.println("Start Calabash");
-			calabash.run(args);
-			System.out.println("End Calabash");
-		} catch (SaxonApiException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
+		Process p = Runtime.getRuntime().exec(command);
+		p.waitFor();
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
+		/*ClassLoader prevCl = Thread.currentThread().getContextClassLoader();
+		try {
+
+			File resolverfile = new File("./resolver/resolver.jar");
+			File resolverdir = new File("./resolver/");
+			File calabashfile = new File("./calabash/calabash.jar");
+			File calabashlib = new File("./calabash/lib/");
+			
+			ClassLoader urlCl;
+			urlCl = URLClassLoader.newInstance(new URL[]{resolverfile.toURL(), resolverdir.toURL(), calabashfile.toURL(), calabashlib.toURL()});
+			
+			CalabashThread calabashthread = new CalabashThread();
+			calabashthread.setContextClassLoader(urlCl);
+			System.out.println("Start Thread");
+			calabashthread.run(pathToEpub);
+			Context ctx = new InitialContext();
+			System.out.println(ctx.lookup("resolver/catalog.xml"));
+		} catch (NamingException e) {
+
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally  {
+
+			Thread.currentThread().setContextClassLoader(prevCl);
+		}*/
+
 	}
 
-	public void openBrowser(){
+	public void openBrowser(File resultfile){
 		browser = new Browser(outputArea, SWT.NONE);
         browser.setBounds(outputArea.getClientArea());
-        browser.setUrl("file://./report.html");
+        browser.setUrl(resultfile.toURI().getPath());
 	}
 	
 	public void resizeBrowser(){
