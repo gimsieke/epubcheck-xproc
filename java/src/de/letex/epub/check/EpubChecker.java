@@ -1,3 +1,4 @@
+package de.letex.epub.check;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -13,6 +14,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.sql.Array;
+import java.util.Vector;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -57,12 +59,14 @@ public class EpubChecker {
 	Label pathLabel;
 	Image leTexLogo;
 	Cursor cursor;
+	private static Vector<EpubCheckProfile> profiles = new Vector<EpubCheckProfile>();
 	
 		
 	//private static final String TEMPDIR = System.getProperty("java.io.tmpdir");
-	private static final String[] profiles = {"EPUB", "MOBI", "IPAD"};
+	//private static final String[] profiles = {"EPUB", "MOBI", "IPAD"};
 	
 	public static void main(String[] args) {
+		setProfiles();
 		Display display = new Display();
 		Shell shell = new EpubChecker().createShell(display);
 		shell.open();
@@ -70,6 +74,12 @@ public class EpubChecker {
 			if (!display.readAndDispatch())
 				display.sleep();
 		}
+	}
+
+	private static void setProfiles() {
+		profiles.add(new EpubCheckProfile("EPUB", "Epubcheck 3 with version autodetection", new File("xproc/epub.xpl")));
+		profiles.add(new EpubCheckProfile("IPAD", "Epub 2.0.1 with video, audio, fixed layout, …", new File("xproc/epub.xpl")));
+		profiles.add(new EpubCheckProfile("MOBI", "Epub 2.0.1 with layout & font constraints", new File("xproc/kindle.xpl")));
 	}
 
 	public Shell createShell(final Display display) {
@@ -107,7 +117,11 @@ public class EpubChecker {
 		    });
 		
 		selectProfileCombo = new Combo(shell, SWT.DROP_DOWN | SWT.READ_ONLY);
-		selectProfileCombo.setItems(profiles);
+		String[] profilestrings = new String[profiles.size()];
+		for (int i = 0; i < profiles.size();i++) {
+			profilestrings[i] = profiles.elementAt(i).getName();
+		}
+		selectProfileCombo.setItems(profilestrings);
 		selectProfileCombo.select(0);
 		
 		manageProfilesButton = new Button(shell, SWT.PUSH);
