@@ -340,7 +340,7 @@ public class EpubChecker {
 	}
 	
 	public void resizeBrowser(){
-		browser.setBounds(outputArea.getClientArea());
+		if(!browser.isDisposed()) browser.setBounds(outputArea.getClientArea());
 	}
 	
 	public void reloadBrowser(File resultfile){
@@ -386,7 +386,7 @@ public class EpubChecker {
 	}
 	
 	public void resizeTable(){
-		table.setBounds(outputArea.getClientArea());
+		if(!table.isDisposed()) table.setBounds(outputArea.getClientArea());
 	}
 	
 	public static File createTempDir() throws IOException{
