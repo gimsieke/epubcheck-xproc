@@ -81,9 +81,10 @@ public class EpubChecker {
 	}
 
 	private static void setProfiles() {
-		profiles.add(new EpubCheckProfile("EPUB", "Epubcheck 3 with version autodetection", new File("xproc/epub.xpl")));
-		profiles.add(new EpubCheckProfile("IPAD", "Epub 2.0.1 with video, audio, fixed layout, �", new File("xproc/epub.xpl")));
-		profiles.add(new EpubCheckProfile("MOBI", "Epub 2.0.1 with layout & font constraints", new File("xproc/kindle.xpl")));
+
+		profiles.add(new EpubCheckProfile("EPUB", "Epubcheck 3 with version autodetection", "xproc/epub.xpl"));
+		profiles.add(new EpubCheckProfile("IPAD", "Epub 2.0.1 with video, audio, fixed layout, �", "xproc/epub.xpl"));
+		profiles.add(new EpubCheckProfile("MOBI", "Epub 2.0.1 with layout & font constraints", "xproc/kindle.xpl"));
 	}
 
 	public Shell createShell(final Display display) {
@@ -155,10 +156,12 @@ public class EpubChecker {
 						File tempdir = createTempDir();
 						File resultfile = new File(tempdir.getAbsolutePath() + File.separatorChar + "result.html");
 						System.out.println(tempdir.getAbsolutePath());
+						System.out.println(selectProfileCombo.getText());
 						unzip(pathToEpubText.getText(), tempdir);
-						checkEpub(tempdir, "kindle", resultfile);
 						if(table != null) closeTable();
+						checkEpub(tempdir, selectProfileCombo.getText(), resultfile);
 						openBrowser(resultfile);
+						System.out.println("Open Browser finished");
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -287,9 +290,9 @@ public class EpubChecker {
 
 		String outputURI = pathToEpub.toURI().getPath();
 		String reportURI = pathToReport.toURI().getPath();
-		String pipelineURI = "xproc/kindle.xpl";
-
-		String[] calabash_args = {"-Eorg.apache.xml.resolver.tools.CatalogResolver" ,"-Uorg.apache.xml.resolver.tools.CatalogResolver" ,"-oresult="+reportURI,pipelineURI,"epubdir="+ outputURI};
+		System.out.println(profile);
+		String profilefile = findProfile(profile);
+		String[] calabash_args = {"-Eorg.apache.xml.resolver.tools.CatalogResolver" ,"-Uorg.apache.xml.resolver.tools.CatalogResolver" ,"-oresult="+reportURI,profilefile,"epubdir="+ outputURI};
 		for (String mystring : calabash_args) {
 			System.out.println(mystring);
 			
@@ -313,10 +316,23 @@ public class EpubChecker {
 		
 	}
 
+	private String findProfile(String profilestring) {
+		String profilefile = null;
+		for (EpubCheckProfile profile: profiles) {
+			System.out.println(profile.getName() + "-" + profilestring);
+			if (profile.getName().equals(profilestring)) {
+				profilefile = profile.getXprocfile();
+			}
+		}
+		
+		
+		return profilefile;
+	}
+
 	public void openBrowser(File resultfile){
 		browser = new Browser(outputArea, SWT.NONE);
         browser.setBounds(outputArea.getClientArea());
-        browser.setUrl(resultfile.toURI().getPath());
+        browser.setUrl(resultfile.toURI().toString());
 	}
 	
 	public void resizeBrowser(){
@@ -345,7 +361,7 @@ public class EpubChecker {
 		      TableItem item = new TableItem(table, SWT.NONE);
 		      item.setText(0, profiles.get(i).getName());
 		      item.setText(1, profiles.get(i).getDescription());
-		      item.setText(2, profiles.get(i).getXprocfile().getPath());
+		      item.setText(2, profiles.get(i).getXprocfile());
 		      }
 		
 		for (int i=0; i<titles.length; i++) {

@@ -10,6 +10,6 @@
 	<classpathentry exported="true" kind="lib" path="resolver"/>
 	<classpathentry exported="true" kind="lib" path="calabash/calabash.jar"/>
 	<classpathentry exported="true" kind="lib" path="calabash/lib"/>
-	<classpathentry kind="lib" path="java/lib/swt_windows_x86.jar"/>
+	<classpathentry kind="lib" path="java/lib/swt.jar"/>
 	<classpathentry kind="output" path="java/build/classes"/>
 </classpath>
