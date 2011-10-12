@@ -22,6 +22,8 @@ import net.sf.saxon.s9api.SaxonApiException;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Combo;
@@ -47,6 +49,7 @@ import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Cursor;
+import org.eclipse.swt.widgets.Table;
 
 
 
@@ -59,6 +62,7 @@ public class EpubChecker {
 	Label pathLabel;
 	Image leTexLogo;
 	Cursor cursor;
+	Table table;
 	private static Vector<EpubCheckProfile> profiles = new Vector<EpubCheckProfile>();
 	
 		
@@ -78,7 +82,7 @@ public class EpubChecker {
 
 	private static void setProfiles() {
 		profiles.add(new EpubCheckProfile("EPUB", "Epubcheck 3 with version autodetection", new File("xproc/epub.xpl")));
-		profiles.add(new EpubCheckProfile("IPAD", "Epub 2.0.1 with video, audio, fixed layout, …", new File("xproc/epub.xpl")));
+		profiles.add(new EpubCheckProfile("IPAD", "Epub 2.0.1 with video, audio, fixed layout, ï¿½", new File("xproc/epub.xpl")));
 		profiles.add(new EpubCheckProfile("MOBI", "Epub 2.0.1 with layout & font constraints", new File("xproc/kindle.xpl")));
 	}
 
@@ -92,6 +96,7 @@ public class EpubChecker {
 		shell.addListener (SWT.Resize,  new Listener () {
 		    public void handleEvent (Event e) {
 		      if(browser != null) resizeBrowser();
+		      else if(table != null) resizeTable();
 		    }
 		  });
 		
@@ -131,6 +136,8 @@ public class EpubChecker {
 		        switch (e.type) {
 		        case SWT.Selection:
 		          System.out.println("manageProfilesButton pressed ");
+		          if(browser != null) closeBrowser();
+		          openTable();
 		          break;
 		        }
 		      }
@@ -150,6 +157,7 @@ public class EpubChecker {
 						System.out.println(tempdir.getAbsolutePath());
 						unzip(pathToEpubText.getText(), tempdir);
 						checkEpub(tempdir, "kindle", resultfile);
+						if(table != null) closeTable();
 						openBrowser(resultfile);
 					} catch (IOException e1) {
 						e1.printStackTrace();
@@ -313,6 +321,44 @@ public class EpubChecker {
 	
 	public void resizeBrowser(){
 		browser.setBounds(outputArea.getClientArea());
+	}
+	
+	public void closeBrowser() {
+		browser.close();
+	}
+
+	public void openTable() {
+		table = new Table(outputArea, SWT.BORDER | SWT.MULTI);
+		int w = outputArea.getBounds().width;
+		int h = outputArea.getBounds().height;
+		table.setBounds(0, 0, w, h);
+		table.setLinesVisible(true);
+		table.setHeaderVisible(true);
+		
+		String[] titles = {"Name", "Description", "ID"};
+		for (int i = 0; i < titles.length; i++) {
+		      TableColumn column = new TableColumn(table, SWT.NONE);
+		      column.setText(titles[i]);
+		    }
+		
+		for (int i = 0; i < profiles.size(); i++) {
+		      TableItem item = new TableItem(table, SWT.NONE);
+		      item.setText(0, profiles.get(i).getName());
+		      item.setText(1, profiles.get(i).getDescription());
+		      item.setText(2, profiles.get(i).getXprocfile().getPath());
+		      }
+		
+		for (int i=0; i<titles.length; i++) {
+		      table.getColumn(i).pack();
+		    }  
+	}
+	
+	public void closeTable() {
+		table.dispose();
+	}
+	
+	public void resizeTable(){
+		table.setBounds(outputArea.getClientArea());
 	}
 	
 	public static File createTempDir() throws IOException{
