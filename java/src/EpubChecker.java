@@ -1,9 +1,11 @@
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -260,48 +262,28 @@ public class EpubChecker {
 	
 	protected void checkEpub(File pathToEpub, String profile, File pathToReport) {
 
-		char sc = File.separatorChar;
-		char sep = File.pathSeparatorChar;
-		String classpath = "./resolver/resolver.jar:./resolver/:./calabash/calabash.jar:./calabash/lib";
-		
-		classpath = classpath.replace('/', sc);
-		classpath = classpath.replace(':', sep);
-		
-		String command = "java -cp " + classpath + " -Dfile.encoding=UTF8 -Dxml.catalog.files=resolver/catalog.xml -Dxml.catalog.staticCatalog=1 -Dxml.catalog.verbosity=9 -Xmx1536m -Xss1024k com.xmlcalabash.drivers.Main -E org.apache.xml.resolver.tools.CatalogResolver -U org.apache.xml.resolver.tools.CatalogResolver -o result=" + pathToReport.toURI().getPath() + " xproc/" + profile + ".xpl epubdir="+ pathToEpub.toURI().getPath();
-		
-		try {
-		Process p = Runtime.getRuntime().exec(command);
-		p.waitFor();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		/*ClassLoader prevCl = Thread.currentThread().getContextClassLoader();
-		try {
 
-			File resolverfile = new File("./resolver/resolver.jar");
-			File resolverdir = new File("./resolver/");
-			File calabashfile = new File("./calabash/calabash.jar");
-			File calabashlib = new File("./calabash/lib/");
-			
-			ClassLoader urlCl;
-			urlCl = URLClassLoader.newInstance(new URL[]{resolverfile.toURL(), resolverdir.toURL(), calabashfile.toURL(), calabashlib.toURL()});
-			
-			CalabashThread calabashthread = new CalabashThread();
-			calabashthread.setContextClassLoader(urlCl);
-			System.out.println("Start Thread");
-			calabashthread.run(pathToEpub);
-			Context ctx = new InitialContext();
-			System.out.println(ctx.lookup("resolver/catalog.xml"));
-		} catch (NamingException e) {
+		String outputURI = pathToEpub.toURI().getPath();
+		String pipelineURI = "xproc/kindle.xpl";
 
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+		String[] calabash_args = {"-Eorg.apache.xml.resolver.tools.CatalogResolver" ,"-Uorg.apache.xml.resolver.tools.CatalogResolver" ,"-oresult="+outputURI,pipelineURI,"epubdir="+ pathToEpub.toURI().getPath() + "/"};
+		
+		//PrintStream stdout = System.out;
+		System.setProperty("xml.catalog.files", "./resolver/catalog.xml");
+		com.xmlcalabash.drivers.Main main = new com.xmlcalabash.drivers.Main();
+		
+		//ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+		//System.setOut(new PrintStream(byteStream, true));
+		try{
+		main.run(calabash_args);
+		} catch(Exception e) {
 			e.printStackTrace();
-		} finally  {
+		}
+		
+//		String outputResult = byteStream.toString();
+//		System.setOut(stdout);
 
-			Thread.currentThread().setContextClassLoader(prevCl);
-		}*/
-
+		
 	}
 
 	public void openBrowser(File resultfile){
