@@ -6,10 +6,10 @@ public class EpubCheckProfile {
 	
 	String name;
 	String description;
-	File xprocfile;
+	String xprocfile;
 	
 	
-	public EpubCheckProfile(String name, String description, File xprocfile) {
+	public EpubCheckProfile(String name, String description, String xprocfile) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -37,12 +37,12 @@ public class EpubCheckProfile {
 	}
 
 
-	public File getXprocfile() {
+	public String getXprocfile() {
 		return xprocfile;
 	}
 
 
-	public void setXprocfile(File xprocfile) {
+	public void setXprocfile(String xprocfile) {
 		this.xprocfile = xprocfile;
 	}
 	
