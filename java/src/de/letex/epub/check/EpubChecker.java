@@ -184,7 +184,7 @@ public class EpubChecker {
 		logoBox = new Canvas(shell, SWT.NONE);
 		logoBox.addPaintListener(new PaintListener() {
 			public void paintControl(PaintEvent e) {
-				leTexLogo = new Image(display, "Logo_Web_BGtrans_24.png");
+				leTexLogo = new Image(display, "logos/Logo_Web_BGtrans_24.png");
 				e.gc.drawImage(leTexLogo, 0, 0);
 			}
 		});
