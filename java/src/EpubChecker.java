@@ -264,22 +264,27 @@ public class EpubChecker {
 
 
 		String outputURI = pathToEpub.toURI().getPath();
+		String reportURI = pathToReport.toURI().getPath();
 		String pipelineURI = "xproc/kindle.xpl";
 
-		String[] calabash_args = {"-Eorg.apache.xml.resolver.tools.CatalogResolver" ,"-Uorg.apache.xml.resolver.tools.CatalogResolver" ,"-oresult="+outputURI,pipelineURI,"epubdir="+ pathToEpub.toURI().getPath() + "/"};
-		
+		String[] calabash_args = {"-Eorg.apache.xml.resolver.tools.CatalogResolver" ,"-Uorg.apache.xml.resolver.tools.CatalogResolver" ,"-oresult="+reportURI,pipelineURI,"epubdir="+ outputURI};
+		for (String mystring : calabash_args) {
+			System.out.println(mystring);
+			
+		}
 		//PrintStream stdout = System.out;
 		System.setProperty("xml.catalog.files", "./resolver/catalog.xml");
 		com.xmlcalabash.drivers.Main main = new com.xmlcalabash.drivers.Main();
 		
 		//ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
 		//System.setOut(new PrintStream(byteStream, true));
+		System.out.println("Start of Calabash execution");
 		try{
 		main.run(calabash_args);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
+		System.out.println("End of Calabash execution");
 //		String outputResult = byteStream.toString();
 //		System.setOut(stdout);
 
