@@ -160,7 +160,11 @@ public class EpubChecker {
 						unzip(pathToEpubText.getText(), tempdir);
 						if(table != null) closeTable();
 						checkEpub(tempdir, selectProfileCombo.getText(), resultfile);
-						openBrowser(resultfile);
+						if(browser == null) {
+							openBrowser(resultfile);
+						} else {
+							reloadBrowser(resultfile);
+						}
 						System.out.println("Open Browser finished");
 					} catch (IOException e1) {
 						e1.printStackTrace();
@@ -337,6 +341,14 @@ public class EpubChecker {
 	
 	public void resizeBrowser(){
 		browser.setBounds(outputArea.getClientArea());
+	}
+	
+	public void reloadBrowser(File resultfile){
+		if(browser.isDisposed()) {
+			openBrowser(resultfile);
+		} else {
+			browser.setUrl(resultfile.toURI().toString());
+		}
 	}
 	
 	public void closeBrowser() {
