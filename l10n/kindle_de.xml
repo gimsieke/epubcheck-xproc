@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<messages xml:lang="de">
+  <message id="SCH_Kindle_0002">Fontgrößen über 2em bleiben ohne Effekt (<val name="info"/>)</message>
+</messages>

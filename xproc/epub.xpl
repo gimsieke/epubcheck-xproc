@@ -13,6 +13,27 @@
   <p:import href="../lib/xproc-extensions.xpl" />
   <p:import href="css.xpl" />
 
+
+  <p:declare-step type="epub:load-if-exists" name="load-if-exists">
+    <p:option name="href" />
+    <p:output port="result" primary="true" sequence="true"/>
+
+    <p:try>
+      <p:group>
+        <p:load>
+          <p:with-option name="href" select="$href" />
+        </p:load>
+      </p:group>
+      <p:catch>
+        <p:identity>
+          <p:input port="source">
+            <p:empty/>
+          </p:input>
+        </p:identity>
+      </p:catch>
+    </p:try>
+  </p:declare-step>
+
   <p:declare-step type="epub:opf" name="opf">
     <p:option name="epubdir" />
     <p:output port="result" primary="true"/>
@@ -25,7 +46,7 @@
     </p:load>
 
     <!-- This is just ridiculous. XProc, thou art not perfect. -->
-    <p:string-replace match="/opfdir/text()" name="opfdir">
+    <p:string-replace match="/opfdir/text()">
       <p:input port="source">
         <p:inline>
           <opfdir>opfdir</opfdir>
@@ -35,6 +56,11 @@
         <p:pipe step="container" port="result" />
       </p:with-option>
     </p:string-replace>
+
+    <p:add-attribute match="/*" attribute-name="opf-href"  name="opfdir">
+      <p:with-option name="attribute-value" select="/*:container/*:rootfiles/*:rootfile/@full-path" />
+    </p:add-attribute>
+
 
     <p:load>
       <p:with-option name="href" select="concat($epubdir, '/', /*:container/*:rootfiles/*:rootfile/@full-path)">
@@ -68,10 +94,11 @@
 
   <p:declare-step type="epub:validate-part" name="validate-part">
     <p:option name="href" select="''" />
+    <p:option name="display-href" select="''" />
     <p:option name="epub-version" />
     <p:option name="content-type" />
-    <p:output port="result" primary="true"/>
-    <p:output port="report">
+    <p:output port="result" primary="true" />
+    <p:output port="report" sequence="true">
       <p:pipe step="try" port="report" />
     </p:output>
     <p:input port="source" primary="true"/>  
@@ -98,11 +125,22 @@
     <p:try name="try">
       <p:group>
         <p:output port="report">
-          <p:inline>
-            <c:report>ok</c:report>
-          </p:inline>
+          <p:pipe step="ok" port="result" />
         </p:output>
         <p:output port="result" primary="true"/>
+
+        <p:add-attribute match="/*" attribute-name="href">
+          <p:input port="source">
+            <p:inline>
+              <c:report>ok</c:report>
+            </p:inline>
+          </p:input>
+          <p:with-option name="attribute-value" select="$href" />
+        </p:add-attribute>
+        <p:add-attribute match="/*" attribute-name="part" name="ok">
+          <p:with-option name="attribute-value" select="$content-type" />
+        </p:add-attribute>
+
         <p:choose>
           <p:when test="$validation-type eq 'rng'">
             <p:validate-with-relax-ng>
@@ -141,7 +179,7 @@
           </p:input>
         </p:identity>
         <p:add-attribute match="/*" attribute-name="href">
-          <p:with-option name="attribute-value" select="$href" />
+          <p:with-option name="attribute-value" select="if ($display-href ne '') then $display-href else $href" />
         </p:add-attribute>
         <p:add-attribute match="/*" attribute-name="part" name="fwd-errors">
           <p:with-option name="attribute-value" select="$content-type" />
@@ -155,8 +193,6 @@
         </p:identity>
       </p:catch>
     </p:try>
-
-    <p:identity name="stdout" />
 
   </p:declare-step>
 
@@ -178,6 +214,7 @@
         <p:output port="result" primary="true"/>
         <epub:validate-part name="validate-part">
           <p:with-option name="href" select="concat($epubdir, '/', $opfdir, //opf:manifest/opf:item[@id eq 'ncx']/@href)" />
+          <p:with-option name="display-href" select="//opf:manifest/opf:item[@id eq 'ncx']/@href" />
           <p:with-option name="epub-version" select="/*/@version" />
           <p:with-option name="content-type" select="'ncx'" />
         </epub:validate-part>
@@ -222,6 +259,7 @@
         <epub:validate-part name="validate-part">
           <p:with-option name="epub-version" select="/*/@version" />
           <p:with-option name="content-type" select="'opf'" />
+          <p:with-option name="display-href" select="//opf:manifest/opf:item[@id eq 'ncx']/@href" />
         </epub:validate-part>
       </p:group>
       <p:catch name="catch1">
@@ -253,27 +291,31 @@
     <p:input port="opf" primary="true" />
     <p:option name="epubdir" />
     <p:option name="opfdir" />
-
     <p:output port="result" primary="true">
       <p:pipe step="wrap-spineconents" port="result" />
     </p:output>
+    <p:output port="report" sequence="true">
+      <p:pipe step="for-each" port="report" />
+    </p:output>
 
-    <p:for-each>
+    <p:for-each name="for-each">
+      <p:output port="result" primary="true" />
+      <p:output port="report">
+        <p:pipe step="validate-part" port="report" />
+      </p:output>
+
       <p:iteration-source select="//opf:spine/*" />
       <p:variable name="id" select="/*/@idref"/>
       <p:variable name="filename" select="//opf:manifest/opf:item[@id eq $id]/@href">
         <p:pipe step="validate-spinecontent" port="opf" />
       </p:variable>
 
-      <p:load name="file">
-        <p:with-option name="href" select="concat($epubdir, '/', $opfdir, $filename)" />
-      </p:load>
-      
-      <epub:validate-part>
+      <epub:validate-part name="validate-part">
         <p:with-option name="epub-version" select="/*/@version">
           <p:pipe step="validate-spinecontent" port="opf"/>
         </p:with-option>
         <p:with-option name="content-type" select="'spine-html'" />
+        <p:with-option name="href" select="concat($epubdir, '/', $opfdir, $filename)" />
       </epub:validate-part>
 
       <p:add-attribute match="/*" attribute-name="opf-path">
@@ -286,7 +328,6 @@
 
   </p:declare-step>
 
-
   <p:declare-step type="epub:css-expanded-spinecontent" name="css-expanded-spinecontent">
     <p:input port="opf" primary="true" />
     <p:option name="epubdir" />
@@ -295,8 +336,13 @@
     <p:output port="result" primary="true">
       <p:pipe step="wrap-spineconents" port="result" />
     </p:output>
+    <p:output port="report" sequence="true">
+      <p:pipe step="for-each" port="report" />
+    </p:output>
 
-    <p:for-each>
+    <p:for-each name="for-each">
+      <p:output port="result" primary="true" />
+      <p:output port="report" sequence="true" />
       <p:iteration-source select="//opf:spine/*" />
       <p:variable name="id" select="/*/@idref"/>
       <p:variable name="filename" select="//opf:manifest/opf:item[@id eq $id]/@href">
@@ -322,8 +368,11 @@
 
   <p:declare-step type="epub:schematron-spinehtml" name="schematron-spinehtml">
     <p:option name="schematron" />
+    <p:option name="xsl" select="'../xsl/svrl2xsl.xsl'" />
 
     <p:input port="source" primary="true" />
+    <p:input port="l10n" sequence="true" />
+    <p:input port="schematron" />
     <p:output port="result" primary="true">
       <p:pipe step="patch" port="result" />
     </p:output>
@@ -331,16 +380,21 @@
       <p:pipe step="schematron" port="report" />
     </p:output>
 
-    <p:load name="load">
+    <p:load name="load-schematron">
       <p:with-option name="href" select="$schematron" />
+    </p:load>
+    <p:load name="load-xsl">
+      <p:with-option name="href" select="$xsl" />
     </p:load>
 
     <p:validate-with-schematron name="schematron" assert-valid="false">
+    <p:log port="report" href="schematron.xml"/>
+
       <p:input port="source">
         <p:pipe step="schematron-spinehtml" port="source" />
       </p:input>
       <p:input port="schema">
-        <p:pipe step="load" port="result"/>
+        <p:pipe step="load-schematron" port="result"/>
       </p:input>
       <p:input port="parameters">
         <p:inline>
@@ -358,11 +412,16 @@
     <p:xslt name="create-patch-xsl">
       <p:input port="source">
   	    <p:pipe step="schematron" port="report"/>
+  	    <p:pipe step="schematron-spinehtml" port="l10n"/>
       </p:input>
       <p:input port="stylesheet">
-        <p:document href="../xsl/svrl2xsl.xsl"/>
+        <p:pipe step="load-xsl" port="result"/>
       </p:input>
-      <p:input port="parameters"><p:empty/></p:input>
+      <p:input port="parameters">
+        <p:inline>
+          <c:param name="lang" value="$lang" />
+        </p:inline>
+      </p:input>
     </p:xslt>
     <p:sink/>
 
@@ -378,6 +437,55 @@
     </p:xslt>
   </p:declare-step>
 
+
+  <p:declare-step type="epub:render-plain-reports" name="plain-reports">
+    <p:option name="xsl" select="'../xsl/plain-html-report.xsl'" />
+    <p:option name="schematron-content-links" select="'true'" />
+
+    <p:input port="source" primary="true" sequence="true"/>
+    <p:input port="l10n" sequence="true" />
+    <p:output port="result" primary="true" sequence="true">
+      <p:pipe step="render" port="result" />
+    </p:output>
+
+    <p:load name="load-xsl">
+      <p:with-option name="href" select="$xsl"><p:empty/></p:with-option>
+    </p:load>
+
+    <p:xslt name="render" template-name="main">
+      <p:input port="source">
+        <p:pipe step="plain-reports" port="source" />
+      </p:input>
+      <p:input port="stylesheet">
+        <p:pipe step="load-xsl" port="result" />
+      </p:input>
+      <p:input port="parameters">
+        <p:inline>
+          <c:param-set>
+            <c:param name="schematron-content-links" value="$schematron-content-links" />
+          </c:param-set>
+        </p:inline>
+      </p:input>
+    </p:xslt>
+
+  </p:declare-step>
+
+  <p:declare-step type="epub:htmlreport" name="htmlreport">
+    <p:input port="source" primary="true" sequence="true"/>
+    <p:output port="result" primary="true">
+      <p:pipe step="assemble" port="result" />
+    </p:output>
+
+    <p:xslt name="assemble" template-name="main">
+      <p:input port="source">
+        <p:pipe step="htmlreport" port="source" />
+      </p:input>
+      <p:input port="stylesheet">
+        <p:document href="../xsl/assemble-reports.xsl" />
+      </p:input>
+      <p:input port="parameters"><p:empty/></p:input>
+    </p:xslt>
+  </p:declare-step>
 
 </p:library>
 

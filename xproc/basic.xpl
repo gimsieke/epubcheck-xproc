@@ -7,10 +7,6 @@
   name="basic"
   version="1.0">
 
-  <p:option name="epubdir" />
-  
-  <p:import href="epub.xpl" />
-
   <p:output port="opfout">
     <p:pipe step="opf" port="result" />
   </p:output>
@@ -20,7 +16,14 @@
   <p:output port="reports" sequence="true">
     <p:pipe step="reports" port="result" />
   </p:output>
-
+  <p:output port="html-report-fragments" sequence="true">
+    <p:pipe step="html-report-fragments" port="result" />
+  </p:output>
+  
+  <p:option name="epubdir" />
+  
+  <p:import href="epub.xpl" />
+  
   <epub:opf name="opf">
     <p:with-option name="epubdir" select="$epubdir" />
   </epub:opf>
@@ -36,7 +39,7 @@
 
   <p:sink/>
 
-  <epub:validate-spinecontent>
+  <epub:validate-spinecontent name="validate-spinecontent">
     <p:with-option name="epubdir" select="$epubdir" />
     <p:with-option name="opfdir" select="//opfdir">
       <p:pipe step="opf" port="opfdir"/>
@@ -53,6 +56,7 @@
     <p:iteration-source>
       <p:pipe step="validate-opf" port="report" />
       <p:pipe step="validate-ncx" port="report" />
+      <p:pipe step="validate-spinecontent" port="report" />
     </p:iteration-source>
     <p:identity>
       <p:input port="source">
@@ -61,6 +65,6 @@
     </p:identity>
   </p:for-each>
 
-  <p:wrap-sequence wrapper="report" name="joint-report"/>
+  <epub:render-plain-reports name="html-report-fragments"/>
 
 </p:pipeline>
