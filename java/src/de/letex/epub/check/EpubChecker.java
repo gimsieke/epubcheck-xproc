@@ -1,11 +1,16 @@
 package de.letex.epub.check;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -314,9 +319,48 @@ public class EpubChecker {
 			e.printStackTrace();
 		}
 		System.out.println("End of Calabash execution");
+		setEncodingForReport(pathToReport);
 //		String outputResult = byteStream.toString();
 //		System.setOut(stdout);
 
+		
+	}
+
+	private void setEncodingForReport(File pathToReport) {
+		if(pathToReport.exists()){
+			try {
+				FileInputStream fis = new FileInputStream(pathToReport);
+				InputStreamReader isr = new InputStreamReader(fis);
+				BufferedReader br = new BufferedReader(isr);
+				StringBuffer sb = new StringBuffer();
+				String textinLine;
+				while(true) {
+					textinLine=br.readLine();
+					if(textinLine==null){
+						break;
+					}
+					sb.append(textinLine);
+				}
+				int iofht = sb.indexOf("<head>");
+				sb.replace(iofht,iofht+"<head>".length(),"<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
+				
+				fis.close();
+				isr.close();
+				br.close();
+				
+				FileWriter fw = new FileWriter(pathToReport);
+				BufferedWriter bw = new BufferedWriter(fw);
+				bw.write(sb.toString());
+				bw.close();
+				
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
 		
 	}
 
