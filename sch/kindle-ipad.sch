@@ -138,27 +138,27 @@
     <s:rule context="*[@css:border-top]">
       <s:report test="@css:border-top">
         <s:span class="severity">WRN</s:span>
-        <s:span class="msgid">SCH_Kindle_0022</s:span> border-top not supported </s:report>
+        <s:span class="msgid">SCH_Kindle_0022</s:span> border-top not supported. </s:report>
     </s:rule>
     <s:rule context="*[@css:border-right]">
       <s:report test="@css:border-right">
         <s:span class="severity">WRN</s:span>
-        <s:span class="msgid">SCH_Kindle_0023</s:span> border-right not supported </s:report>
+        <s:span class="msgid">SCH_Kindle_0023</s:span> border-right not supported. </s:report>
     </s:rule>
     <s:rule context="*[@css:border-bottom]">
       <s:report test="@css:border-bottom">
         <s:span class="severity">WRN</s:span>
-        <s:span class="msgid">SCH_Kindle_0024</s:span> border-bottom not supported </s:report>
+        <s:span class="msgid">SCH_Kindle_0024</s:span> border-bottom not supported. </s:report>
     </s:rule>
     <s:rule context="*[@css:border-left]">
       <s:report test="@css:border-left">
         <s:span class="severity">WRN</s:span>
-        <s:span class="msgid">SCH_Kindle_0025</s:span> border-left not supported </s:report>
+        <s:span class="msgid">SCH_Kindle_0025</s:span> border-left not supported. </s:report>
     </s:rule>
     <s:rule context="*[@css:border]">
       <s:report test="@css:border">
         <s:span class="severity">WRN</s:span>
-        <s:span class="msgid">SCH_Kindle_0026</s:span> border is not supported</s:report>
+        <s:span class="msgid">SCH_Kindle_0026</s:span>border is not supported. </s:report>
     </s:rule>
   </s:pattern>
   <s:pattern id="border-style">
@@ -188,8 +188,7 @@
     <s:rule context="*[@css:border-style]">
       <s:report test="@css:border-style">
         <s:span class="severity">WRN</s:span>
-        <s:span class="msgid">SCH_Kindle_0031</s:span> border-style is not supported on Kindle and
-        Kindle DX. </s:report>
+        <s:span class="msgid">SCH_Kindle_0031</s:span> border-style is not supported</s:report>
     </s:rule>
   </s:pattern>
   <s:pattern id="border-width">
@@ -250,8 +249,7 @@
     <s:rule context="*[@css:border-color]">
       <s:report test="@css:border-color">
         <s:span class="severity">WRN</s:span>
-        <s:span class="msgid">SCH_Kindle_0041</s:span> border-width is not supported
-      </s:report>
+        <s:span class="msgid">SCH_Kindle_0041</s:span> border-width is not supported</s:report>
     </s:rule>
   </s:pattern>
 
@@ -389,17 +387,34 @@
        * COLORS
        * -->
   <s:pattern id="color">
-    <s:rule context="*[@css:color]">
-      <s:report test="@css:color">
+    <s:rule context="*[@css:color][normalize-space(.)]">
+      <s:report test="@css:color[( matches(., (?i)rgb\([0-9]+,[0-9]+,[0-9]+\) ) ]">
         <s:span class="severity">WRN</s:span>
-        <s:span class="msgid">SCH_Kindle_0065</s:span> color is not supported
-      </s:report>
-      </s:rule>
-      <s:rule context="*[@css:background-color]">
-      <s:report test="@css:background-color">
+        <s:span class="msgid">SCH_Kindle_0066</s:span> color statements specified in the format rgb(0-255,0-255,0-255) are
+        not supported. Specify colors with hexadecimal values or one of the 17 standard CSS color keywords
+        (except orange) instead. </s:report>
+      <s:report
+        test="not(@css:color eq ('aqua' or 'black' 'blue' or 'fuchsia' or 'gray' or 'green' or 'lime' or 'maroon' or 'navy' or 'olive' or 'purple' or 'red' or 'silver' or 'teal' or 'white' or 'yellow'))">
         <s:span class="severity">WRN</s:span>
-        <s:span class="msgid">SCH_Kindle_0070</s:span> background-color is not supported
-      </s:report>
+        <s:span class="msgid">SCH_Kindle_0067</s:span> unsupported color keyword was used. Specify colors with hexadecimal values or one of the 17 standard CSS color keywords
+        (except orange) instead. </s:report>
+    </s:rule>
+    <s:rule context="*[@css:background-color][normalize-space(.)]">
+      <s:report test="@css:background-color[( matches(., (?i)rgb\([0-9]+,[0-9]+,[0-9]+\) ) ]">
+        <s:span class="severity">WRN</s:span>
+        <s:span class="msgid">SCH_Kindle_0069</s:span> color statements specified in the format rgb(0-255,0-255,0-255) are
+        not supported. Specify colors with hexadecimal values or one of the 17 CSS color keywords
+        (except orange) instead. </s:report>
+      <s:report
+        test="not(@css:background-color eq ('aqua' or 'black' 'blue' or 'fuchsia' or 'gray' or 'green' or 'lime' or 'maroon' or 'navy' or 'olive' or 'purple' or 'red' or 'silver' or 'teal' or 'white' or 'yellow'))">
+        <s:span class="severity">WRN</s:span>
+        <s:span class="msgid">SCH_Kindle_0070</s:span> unsupported color keyword was used. Specify colors with hexadecimal values or one of the 17 standard CSS color keywords
+        (except orange) instead.
+        </s:report>
+    </s:rule>
+    <s:rule context="*[@css:background-color]">
+      <s:report test="@css:color"> only background-color is displayed, when both color and
+        background-color style are applied </s:report>
     </s:rule>
   </s:pattern>
   <!-- *
