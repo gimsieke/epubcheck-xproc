@@ -104,6 +104,11 @@
     </s:rule>
   </s:pattern>
   <s:pattern id="visibility">
+    <s:rule context="*[@css:visibility]">
+      <s:report test="@css:visibility eq 'collapse'">
+        <s:span class="severity">WRN</s:span>
+        <s:span class="msgid">SCH_iPad_0075</s:span> visibility:collapse is not supported. visibility:hidden is used instead</s:report>
+    </s:rule>
     <s:rule context="*[@css:overflow]">
       <s:report test="@css:overflow">
         <s:span class="severity">WRN</s:span>
