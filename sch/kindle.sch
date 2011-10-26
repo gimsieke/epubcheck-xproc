@@ -380,7 +380,7 @@
       <s:report test="@css:display eq 'inline-block'">
         <s:span class="severity">WRN</s:span>
         <s:span class="msgid">SCH_Kindle_0063</s:span> display:inline-block is not supported. </s:report>
-      <s:report test="@css:display eq 'inline-none'">
+      <s:report test="@css:display eq 'none'">
         <s:span class="severity">WRN</s:span>
         <s:span class="msgid">SCH_Kindle_0064</s:span> display:none is not supported. </s:report>
     </s:rule>
@@ -447,11 +447,6 @@
       <s:report test="@css:direction">
         <s:span class="severity">WRN</s:span>
         <s:span class="msgid">SCH_Kindle_0077</s:span> direction is not supported </s:report>
-    </s:rule>
-    <s:rule context="*[@css:z-index]">
-      <s:report test="@css:z-index">
-        <s:span class="severity">WRN</s:span>
-        <s:span class="msgid">SCH_Kindle_0078</s:span> z-index is not supported </s:report>
     </s:rule>
     <s:rule context="*[@css:z-index]">
       <s:report test="@css:z-index">
