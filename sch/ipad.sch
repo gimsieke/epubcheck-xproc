@@ -14,7 +14,7 @@
        * -->
   <s:pattern id="font-family">
     <s:rule context="*[@css:font-family]">
-      <s:report test="@css:font-family eq ( 'serif' or 
+      <s:report test="not (@css:font-family eq ( 'serif' or 
                                             'sans-serif' or 
                                             'cursive' or 
                                             'fantasy' or 
@@ -24,7 +24,7 @@
                                             'helvetica' or 
                                             'palatino' or 
                                             'times' or 
-                                            'verdana' )">
+                                            'verdana' ))">
         <s:span class="severity">ERR</s:span>
         <s:span class="msgid">SCH_iPad_0007</s:span> Apple iBooks for iPad supports per default generic fonts (serif, sans-serif, czrsive, fantasy and monospace) and the presinstalled fonts baskerville, cochin, helvetica, palatino, times and verdana  
       </s:report>
