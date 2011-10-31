@@ -70,6 +70,34 @@
   </p:declare-step>
 
 
+  <!-- For loading a RNG or RNC schema. First try loading an XML file. If it fails, load it as data. 
+       Since data does not accept a variable as href, we will use p:http-request on a file: resource as a workaround. --> 
+  <p:declare-step type="epub:load-or-data" name="doc">
+    <p:option name="href" />
+    <p:output port="result" primary="true" />
+    <p:try name="try">
+      <p:group>
+        <p:load>
+          <p:with-option name="href" select="$href" />
+        </p:load>
+      </p:group>
+      <p:catch name="catch">
+        <p:identity>
+          <p:input port="source">
+            <p:inline>
+              <c:request method="GET" detailed="false" /> 
+            </p:inline>
+          </p:input>
+        </p:identity>
+        <p:add-attribute match="/c:request" attribute-name="href">
+          <p:with-option name="attribute-value" select="p:resolve-uri($href)" />
+        </p:add-attribute>
+        <p:http-request/>
+        <p:rename match="/c:body" new-name="c:data" />
+      </p:catch>
+    </p:try>
+  </p:declare-step>
+
 
   <p:declare-step type="epub:source-or-href-doc" name="doc">
     <p:option name="href" />
@@ -118,9 +146,9 @@
       <p:with-option name="href" select="if ($href ne '') then $href else ()" />
     </epub:source-or-href-doc>
 
-    <p:load name="schema">
+    <epub:load-or-data name="schema">
       <p:with-option name="href" select="$schema-file" />
-    </p:load>
+    </epub:load-or-data>
 
     <p:try name="try">
       <p:group>
@@ -142,7 +170,7 @@
         </p:add-attribute>
 
         <p:choose>
-          <p:when test="$validation-type eq 'rng'">
+          <p:when test="$validation-type = ('rng', 'rnc')">
             <p:validate-with-relax-ng>
               <p:input port="source">
                 <p:pipe step="doc" port="result"/>
