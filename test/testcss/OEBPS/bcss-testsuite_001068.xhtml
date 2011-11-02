@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <title>CSS Compatibility</title>
+      <link rel="stylesheet" href="stylesheet.css" />
+      <style type="text/css">
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family : district-thin;
+             src : url(fonts/distth.otf);
+         format("opentype");
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before {
+             content : "Text davor "
+         }
+         #after:after {
+             content : "Text danach "
+         }
+      </style>
+   </head>
+    <body>
+    <div class="section" id="tables">
+    <h1>Tabellenformatierung</h1>
+    <h2>Position der Tabellenüberschrift</h2>
+    <p class="reference">caption-side:top</p>
+    <table>
+    <caption style="caption-side:top">Tabellenüberschrift</caption>
+    <tr>
+    <td style="border: 1px solid #000000;">Zeile 1 a1</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a2</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a3</td>
+    </tr>
+    </table>
+    <p class="reference">caption-side:bottom</p>
+    <table>
+    <caption style="caption-side:bottom">Tabellenüberschrift</caption>
+    <tr>
+    <td style="border: 1px solid #000000;">Zeile 1 a1</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a2</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a3</td>
+    </tr>
+    </table>
+    <h2>Rahmenmodell</h2>
+    <h3>Fixes/variables Layout</h3>
+    <p class="reference">table-layout:auto</p>
+    <table style="width:15em; table-layout:auto">
+    <tr>
+    <td style="border: 1px solid #000000; width:9em;">Zeile 1 a1</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a2</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a3</td>
+    </tr>
+    </table>
+    <p class="reference">table-layout:fixed</p>
+    <table style="width:15em; table-layout:fixed">
+    <tr>
+    <td style="border: 1px solid #000000; width:12em;">Zeile 1 a1</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a2</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a3</td>
+    </tr>
+    </table>
+    <h3>Zusammenfallen von Rahmenlinien</h3>
+    <p class="reference">border-collapse:separate</p>
+    <table style="border-collapse:separate">
+    <tr>
+    <td style="border: 1px solid #000000;">Zeile 1 a1</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a2</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a3</td>
+    </tr>
+    </table>
+    <p class="reference">border-collapse:collapse</p>
+    <table style="border-collapse:collapse">
+    <tr>
+    <td style="border: 1px solid #000000;">Zeile 1 a1</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a2</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a3</td>
+    </tr>
+    </table>
+    <h3>Zellenabstand</h3>
+    <p class="reference">border-spacing:1em</p>
+    <table style="border-spacing:1em">
+    <tr>
+    <td style="border: 1px solid #000000;">Zeile 1 a1</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a2</td>
+    <td style="border: 1px solid #000000;">Zeile 1 a3</td>
+    </tr>
+    </table>
+    <h2>Anzeige leerer Zellen</h2>
+    <p class="reference">empty-cells:show</p>
+    <table style="empty-cells:show">
+    <tr>
+    <td style="border: 1px solid #000000;">Zeile 1 a1</td>
+    <td style="border: 1px solid #000000;"></td>
+    <td style="border: 1px solid #000000;">Zeile 1 a3</td>
+    </tr>
+    </table>
+    <p class="reference">empty-cells:hide</p>
+    <table style="empty-cells:hide">
+    <tr>
+    <td style="border: 1px solid #000000;">Zeile 1 a1</td>
+    <td style="border: 1px solid #000000;"></td>
+    <td style="border: 1px solid #000000;">Zeile 1 a3</td>
+    </tr>
+    </table>
+    </div>
+    </body>
+</html>

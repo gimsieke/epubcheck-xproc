@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <title>CSS Compatibility</title>
+      <link rel="stylesheet" href="stylesheet.css" />
+      <style type="text/css">
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family : district-thin;
+             src : url(fonts/distth.otf);
+         format("opentype");
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before {
+             content : "Text davor "
+         }
+         #after:after {
+             content : "Text danach "
+         }
+      </style>
+   </head>
+    <body>
+    <div class="section" id="dimensions">
+    <h1>Breiten- und Höhenangaben</h1>
+    <p class="reference">height:10em</p>
+    <p style="height:10em; border: 1px solid #000000;">Lorem ipsum dolor sit amet, consectetuer
+            adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+    <p class="reference">min-height:10em</p>
+    <p style="min-height:10em; border: 1px solid #000000">Lorem ipsum dolor sit amet,
+            consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+    <p class="reference">max-height:1em</p>
+    <p style="max-height:1em; border: 1px solid #000000">Lorem ipsum dolor sit amet,
+            consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+    <p class="reference">width:10em</p>
+    <p style="width:10em; border: 1px solid #000000">Lorem ipsum dolor sit amet, consectetuer
+            adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+    <p class="reference">min-width:10em</p>
+    <p style="min-width:10em; border: 1px solid #000000">Lorem ipsum dolor sit amet,
+            consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+    <p class="reference">max-width:10em</p>
+    <p style="max-width:10em; border: 1px solid #000000">Lorem ipsum dolor sit amet,
+            consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+      </div>
+    </body>
+</html>

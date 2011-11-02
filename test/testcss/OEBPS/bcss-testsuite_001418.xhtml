@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <title>CSS Compatibility</title>
+      <link rel="stylesheet" href="stylesheet.css" />
+      <style type="text/css">
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family : district-thin;
+             src : url(fonts/distth.otf);
+         format("opentype");
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before {
+             content : "Text davor "
+         }
+         #after:after {
+             content : "Text danach "
+         }
+      </style>
+   </head>
+    <body>
+    <div class="section" id="colors">
+    <h1>Farbe</h1>
+    <h2>Farbangabenformat</h2>
+    <h3>Farbname</h3>
+    <p class="reference">color:red</p>
+    <p style="color:red;">Lorem</p>
+    <h3>RGB-Werte numerisch</h3>
+    <p class="reference">color:rgb(255,0,0)</p>
+    <p style="color:rgb(255,0,0);">Lorem</p>
+    <h3>RGB-Werte hexadezimal</h3>
+    <p class="reference">color:#FF0000</p>
+    <p style="color:#FF0000;">Lorem</p>
+    <h2>Hintergrundfarbe</h2>
+    <p class="reference">background-color:red</p>
+    <p style="background-color:red;">Lorem</p>
+    <h2>Rahmenfarbe</h2>
+    <p class="reference">border: 2px solid red</p>
+    <p style="border-width:2px; border-style: solid; border-color: red; border: 2px solid red;">Lorem</p>
+    <h2>CSS Farbnamen</h2>
+    <p class="reference">color:red</p>
+    <h3>17 CSS Standard Color Keywords</h3>
+    <p style="background-color:aqua;"><span style="color:aqua">test </span>aqua</p>
+    <p style="background-color:black;"><span style="color:black">test </span>black</p>
+    <p style="background-color:blue;"><span style="color:blue">test </span>blue</p>
+    <p style="background-color:fuchsia;"><span style="color:fuchsia">test </span>fuchsia</p>
+    <p style="background-color:gray;"><span style="color:gray">test </span>gray</p>
+    <p style="background-color:green;"><span style="color:green">test </span>green</p>
+    <p style="background-color:lime;"><span style="color:lime">test </span>lime</p>
+    <p style="background-color:maroon;"><span style="color:maroon">test </span>maroon</p>
+    <p style="background-color:navy;"><span style="color:navy">test </span>navy</p>
+    <p style="background-color:olive;"><span style="color:olive">test </span>olive</p>
+    <p style="background-color:orange;"><span style="color:orange">test </span>orange</p>
+    <p style="background-color:purple;"><span style="color:purple">test </span>purple</p>
+    <p style="background-color:red;"><span style="color:red">test </span>red</p>
+    <p style="background-color:silver;"><span style="color:silver">test </span>silver</p>
+    <p style="background-color:teal;"><span style="color:teal">test </span>teal</p>
+    <p style="background-color:white;"><span style="color:white">test </span>white</p>
+    <p style="background-color:yellow;"><span style="color:yellow">test </span>yellow</p>
+    <h3>Other Color Keywords</h3>
+    <p style="background-color:lightskyblue;"><span style="color:lightskyblue">test
+            </span>lightskyblue</p>
+    <p style="background-color:gainsboro;"><span style="color:gainsboro">test
+            </span>gainsboro</p>
+    <p style="background-color:plum;"><span style="color:plum">test </span>plum</p>
+    <p style="background-color:turquoise;"><span style="color:turquoise">test
+            </span>turquoise</p>
+    <p style="background-color:cornflowerblue;"><span style="color:cornflowerblue">test
+            </span>cornflowerblue</p>
+    <p style="background-color:chocolate;"><span style="color:chocolate">test
+            </span>chocolate</p>
+    <p style="background-color:firebrick;"><span style="color:firebrick">test
+            </span>firebrick</p>
+      </div>
+    </body>
+</html>

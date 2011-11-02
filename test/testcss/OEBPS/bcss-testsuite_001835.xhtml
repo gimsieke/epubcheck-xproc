@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <title>CSS Compatibility</title>
+      <link rel="stylesheet" href="stylesheet.css" />
+      <style type="text/css">
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family : district-thin;
+             src : url(fonts/distth.otf);
+         format("opentype");
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before {
+             content : "Text davor "
+         }
+         #after:after {
+             content : "Text danach "
+         }
+      </style>
+   </head>
+    <body>
+    <div class="section" id="html">
+    <div id="d3e1835"><h1>Test</h1></div>
+    <p class="reference">&lt;h2&gt;</p><div><h2>Test</h2></div>
+    <p class="reference">&lt;h3&gt;</p><div><h3>Test</h3></div>
+    <p class="reference">&lt;h4&gt;</p><div><h4>Test</h4></div>
+    <p class="reference">&lt;h5&gt;</p><div><h5>Test</h5></div>
+    <p class="reference">&lt;h6&gt;</p><div><h6>Test</h6></div>
+    <h2>Physical Text Markup</h2>
+    <p class="reference">&lt;big&gt;</p><div><big>Test</big></div>
+    <p class="reference">&lt;small&gt;</p><div><small>Test</small></div>
+    <p class="reference">&lt;b&gt;</p><div><b>Test</b></div>
+    <p class="reference">&lt;i&gt;</p><div><i>Test</i></div>
+    <p class="reference">&lt;sup&gt;</p><div>Test<sup>1</sup></div>
+    <p class="reference">&lt;sub&gt;</p><div>Test<sub>1</sub></div>
+    <h2>Logical Text Markup</h2>
+    <p class="reference">&lt;p&gt;</p><div><p>Test</p></div>
+    <p class="reference">&lt;em&gt;</p><div><em>Test</em></div>
+    <p class="reference">&lt;strong&gt;</p><div><strong>Test</strong></div>
+    <p class="reference">&lt;abbr&gt;</p><div><abbr>Test</abbr></div>
+    <p class="reference">&lt;acronym&gt;</p><div><acronym>Test</acronym></div>
+    <p class="reference">&lt;address&gt;</p><div><address>Test</address></div>
+    <p class="reference">&lt;cite&gt;</p><div><cite>Test</cite></div>
+    <p class="reference">&lt;blockquote&gt;</p><div><blockquote><p>Test</p></blockquote></div>
+    <h2>Technical Markup</h2>
+    <p class="reference">&lt;code&gt;</p><div><code>Test</code></div>
+    <p class="reference">&lt;kbd&gt;</p><div><kbd>Test</kbd></div>
+    <p class="reference">&lt;samp&gt;</p><div><samp>Test</samp></div>
+    <p class="reference">&lt;tt&gt;</p><div><tt>Test</tt></div>
+    <p class="reference">&lt;var&gt;</p><div><var>Test</var></div>
+    <h2>Lists</h2>
+    <p class="reference">&lt;ol&gt;&lt;li&gt;</p><div><ol><li>test</li><li>test</li><li>test</li></ol></div>
+    <p class="reference">&lt;ul&gt;&lt;li&gt;</p><div><ul><li>test</li><li>test</li><li>test</li></ul></div>
+    <h2>Tables</h2>
+    <p class="reference">&lt;table&gt;, &lt;tr&gt;, &lt;td&gt;</p><div>
+    <table border="1">
+    <tr><td>cell 1</td><td>cell 2</td><td>cell 3</td></tr>
+    </table></div>
+    <p class="reference">&lt;thead&gt;, &lt;th&gt;, &lt;tbody&gt;, &lt;tfoot&gt;</p><div>
+    <table border="1">
+    <thead><tr><th>head 1</th><th>head 2</th><th>head 3</th></tr></thead>
+    <tfoot><tr><td>cell 1</td><td>cell 2</td><td>cell 3</td></tr></tfoot>
+    <tbody><tr><td>cell 1</td><td>cell 2</td><td>cell 3</td></tr></tbody>
+    </table></div>
+    <p class="reference">&lt;caption&gt;</p><div>
+    <table border="1">
+    <caption>Caption</caption>
+    <tr><td>"Table</td><td>caption</td><td>displayed?"</td></tr>
+    </table></div>
+    <h2>Images</h2>
+    <p class="reference">&lt;img&gt;</p><div><img src="images/le-tex-logo.jpg" alt="image" width="250" height="100" /></div>
+    <h2>Anchors</h2>
+    <p id="link" class="reference">&lt;a&gt;</p><div><a href="#link">Test</a></div>
+      </div>
+   </body>
+</html>

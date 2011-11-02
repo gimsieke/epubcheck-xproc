@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <title>CSS Compatibility</title>
+      <link rel="stylesheet" href="stylesheet.css" />
+      <style type="text/css">
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family : district-thin;
+             src : url(fonts/distth.otf);
+         format("opentype");
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before {
+             content : "Text davor "
+         }
+         #after:after {
+             content : "Text danach "
+         }
+      </style>
+   </head>
+    <body>
+    <div class="section" id="marginpadding">
+    <h1>Abstände</h1>
+    <div class="subsection">
+    <h2>Außenabstände</h2>
+    <p class="reference">margin-top, margin-bottom, margin-right, margin-left</p>
+    <table>
+    <tbody>
+    <tr>
+    <td style="border:1px solid black">
+    <p style="margin-top:3em">margin-top:3em</p>
+    </td>
+    <td style="border:1px solid black">
+    <p style="margin-bottom:3em">margin-bottom:3em</p>
+    </td>
+    <td style="border:1px solid black">
+    <p style="margin-right:3em">margin-right:3em</p>
+    </td>
+    <td style="border:1px solid black">
+    <p style="margin-left:3em">margin-left:3em</p>
+    </td>
+    </tr>
+    <tr>
+    <td style="border:1px solid black">
+    <p style="margin: 0 0 3em 3em">margin: 0 0 3em 3em</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <div class="subsection">
+    <h2>Innenabstände</h2>
+    <p class="reference">padding-top, padding-bottom, padding-right, padding-left</p>
+    <table>
+    <tbody>
+    <tr>
+    <td style="border:1px solid black">
+    <p style="padding-top:3em">padding-top:3em</p>
+    </td>
+    <td style="border:1px solid black">
+    <p style="padding-bottom:3em">padding-bottom:3em</p>
+    </td>
+    <td style="border:1px solid black">
+    <p style="padding-right:3em">padding-right:3em</p>
+    </td>
+    <td style="border:1px solid black">
+    <p style="padding-left:3em">padding-left:3em</p>
+    </td>
+    </tr>
+    <tr>
+    <td style="border:1px solid black">
+    <p style="padding: 0 0 3em 3em">padding: 0 0 3em 3em</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+      </div>
+    </body>
+</html>

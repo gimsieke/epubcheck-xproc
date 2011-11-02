@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <title>CSS Compatibility</title>
+      <link rel="stylesheet" href="stylesheet.css" />
+      <style type="text/css">
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family : district-thin;
+             src : url(fonts/distth.otf);
+         format("opentype");
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before {
+             content : "Text davor "
+         }
+         #after:after {
+             content : "Text danach "
+         }
+      </style>
+   </head>
+    <body>
+    <div class="section" id="display">
+    <h1 id="d3e223">Anzeigebereich-Steuerung</h1>
+    <p class="reference">overflow:auto</p>
+    <div style="width:150px; height:75px; overflow:auto; border: 1px solid #000000">
+    <img src="images/le-tex-logo.jpg" alt="image" width="250" height="100" />
+    </div>
+    <p class="reference">overflow:scroll</p>
+    <div style="width:150px; height:75px; overflow:scroll; border: 1px solid #000000">
+    <img src="images/le-tex-logo.jpg" alt="image" width="250" height="100" />
+    </div>
+    <p class="reference">overflow:hidden</p>
+    <div style="width:150px; height:75px; overflow:hidden; border: 1px solid #000000">
+    <img src="images/le-tex-logo.jpg" alt="image" width="250" height="100" />
+    </div>
+    <p class="reference">overflow:visible</p>
+    <div style="width:150px; height:75px; overflow:visible; border: 1px solid #000000">
+    <img src="images/le-tex-logo.jpg" alt="image" width="250" height="100" />
+    </div>
+    </div>
+    </body>
+</html>

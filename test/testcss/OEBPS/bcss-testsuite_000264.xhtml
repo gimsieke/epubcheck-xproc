@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <title>Table with basic CSS</title>
+      <link rel="stylesheet" href="stylesheet.css" />
+      <style type="text/css">
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family: district-thin;
+             src: url(fonts/distth.otf);
+             format("opentype");
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before{
+            content:"Text davor "
+         }
+         #after:after{
+            content:"Text danach "
+         }
+         </style>
+   </head>
+    <body>
+    <div class="section" id="font-styles">
+    <h1>Schrift</h1>
+    <h2>Schriftfamilie</h2>
+    <h3>Generic</h3>
+    <p class="reference">font-family</p>
+    <span style="font-family:serif">serif</span>, <span style="font-family:sansserif">sans-serif</span>, <span style="font-family:cursive">cursive</span>, <span style="font-family:fantasy">fantasy</span>, <span style="font-family:monospace">monospace</span>, <h3>System</h3>
+    <p class="reference">font-family</p>
+    <span style="font-family:times">Times</span>, <span style="font-family:arial">Arial</span>, <span style="font-family:verdana">Verdana</span>, <span style="font-family:georgia">Georgia</span>,
+            <span style="font-family:trebuchet">Trebuchet</span>, <span style="font-family:helvetica">Helvetica</span>, <span style="font-family:cambria">Cambria</span>, <span style="font-family:constantia">Constantia</span>
+    <h3>Ressource</h3>
+    <p class="reference">@font-face{ format("opentype"); }</p>
+    <span style="font-family:district-thin">District Thin</span>
+    <h2>Schriftgröße</h2>
+    <p class="reference">font-size</p>
+    <h3>Em</h3>
+    <p>1em is equal to the current font size. 2em means 2 times the size of the current font</p>
+    <p><span style="font-size:0.7em">abc123 0.7em</span><br />
+    <span style="font-size:0.8em">abc123 0.8em</span><br />
+    <span style="font-size:1em">abc123 1em</span><br />
+    <span style="font-size:1.5em">abc123 1.5em</span><br />
+    <span style="font-size:2em">abc123 2em</span><br />
+    <span style="font-size:2.5em">abc123 2.5em</span><br />
+    <span style="font-size:3em">abc123 3em</span><br />
+    <span style="font-size:4em">abc123 4em</span><br />
+    <span style="font-size:5em">abc123 5em</span><br />
+    </p>
+    <h3>Pixels</h3>
+    <p>a dot of the regular resolution of the screen</p>
+    <p><span style="font-size:8px">abc123 8px</span><br />
+    <span style="font-size:10px">abc123 10px</span><br />
+    <span style="font-size:12px">abc123 12px</span><br />
+    <span style="font-size:24px">abc123 24px</span><br />
+    <span style="font-size:30px">abc123 30px</span><br />
+    <span style="font-size:36px">abc123 36px</span><br />
+    <span style="font-size:40px">abc123 40px</span><br />
+    <span style="font-size:48px">abc123 48px</span><br />
+    <span style="font-size:72px">abc123 72px</span><br />
+    </p>
+    <h3>Point</h3>
+    <p>1 pt is the same as 1/72 inch</p>
+    <p><span style="font-size:8pt">abc123 8pt</span><br />
+    <span style="font-size:10pt">abc123 10pt</span><br />
+    <span style="font-size:12pt">abc123 12pt</span><br />
+    <span style="font-size:20pt">abc123 20pt</span><br />
+    <span style="font-size:24pt">abc123 24pt</span><br />
+    <span style="font-size:30pt">abc123 30pt</span><br />
+    <span style="font-size:32pt">abc123 32pt</span><br />
+    <span style="font-size:38pt">abc123 38pt</span><br />
+    <span style="font-size:58pt">abc123 58pt</span><br />
+    </p>
+    <h3>Pica</h3>
+    <p>1 pc is the same as 12 points</p>
+    <p><span style="font-size:0.7pc">abc123 0.7pc</span><br />
+    <span style="font-size:0.8pc">abc123 0.8pc</span><br />
+    <span style="font-size:1pc">abc123 1pc</span><br />
+    <span style="font-size:1.5pc">abc123 1.5pc</span><br />
+    <span style="font-size:2pc">abc123 2pc</span><br />
+    <span style="font-size:2.5pc">abc123 2.5pc</span><br />
+    <span style="font-size:3pc">abc123 3pc</span><br />
+    <span style="font-size:4pc">abc123 4pc</span><br />
+    <span style="font-size:5pc">abc123 5pc</span><br />
+    </p>
+    <h2>Halbfett</h2>
+    <p class="reference">font-weight:bold</p>
+    <p>
+    <span style="font-weight:bold">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+               Aenean commodo ligula eget dolor. Aenean massa.</span>
+    </p>
+    <h2>Kursiv</h2>
+    <p class="reference">font-style:italic</p>
+    <p>
+    <span style="font-style:italic">Lorem ipsum dolor sit amet, consectetuer adipiscing
+               elit. Aenean commodo ligula eget dolor. Aenean massa.</span>
+    </p>
+    <h2>Schräggestellt</h2>
+    <p class="reference">font-style:oblique</p>
+    <p>
+    <span style="font-style:oblique">Lorem ipsum dolor sit amet, consectetuer adipiscing
+               elit. Aenean commodo ligula eget dolor. Aenean massa.</span>
+    </p>
+    <h2>Kapitälchen</h2>
+    <p class="reference">font-variant:small-caps</p>
+    <p>
+    <span style="font-variant:small-caps">Lorem ipsum dolor sit amet, consectetuer
+               adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</span>
+    </p>
+      </div>
+    </body>
+</html>

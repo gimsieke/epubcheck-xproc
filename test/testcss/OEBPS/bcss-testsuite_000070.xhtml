@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <title>CSS Compatibility</title>
+      <link rel="stylesheet" href="stylesheet.css" />
+      <style type="text/css">
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family : district-thin;
+             src : url(fonts/distth.otf);
+         format("opentype");
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before {
+             content : "Text davor "
+         }
+         #after:after {
+             content : "Text danach "
+         }
+      </style>
+   </head>
+    <body>
+    <div class="section" id="display">
+    <h1 id="d3e70">Anzeigeart</h1>
+    <h3>Als Inline-Element anzeigen</h3>
+    <p class="reference">display:inline</p>
+    <h2 style="display:inline">Lorem</h2>
+    <p style="display:inline"> ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa.</p>
+    <h3>Als Block-Element anzeigen</h3>
+    <p class="reference">display:block</p>
+    <p><span style="display:block">Lorem</span> ipsum dolor sit amet, consectetuer adipiscing
+            elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+    <h3>Als Inline-Block-Element anzeigen</h3>
+    <p class="reference">display:inline-block; width:200px</p>
+    <h2 style="display:inline-block; width:200px">Lorem</h2>
+    <p style="display:inline-block"> ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa.</p>
+    <h3>Nicht anzeigen</h3>
+    <p class="reference">display:none</p>
+    <p>
+    <span style="display:none">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+               Aenean commodo ligula eget dolor. Aenean massa.</span>
+    </p>
+    </div>
+    </body>
+</html>

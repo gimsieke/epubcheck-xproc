@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <title>CSS Compatibility</title>
+      <link rel="stylesheet" href="stylesheet.css" />
+      <style type="text/css">
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family : district-thin;
+             src : url(fonts/distth.otf);
+         format("opentype");
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before {
+             content : "Text davor "
+         }
+         #after:after {
+             content : "Text danach "
+         }
+      </style>
+   </head>
+    <body>
+    <div class="section" id="borders">
+    <h1>Rahmen</h1>
+    <h2>Rahmen oben</h2>
+    <p class="reference">border-top-width:1px; border-top-style:solid; border-top-color:
+            black</p>
+    <p style="border-top-width:1px; border-top-style:solid; border-top-color: black;">Lorem</p>
+    <h2>Rahmen unten</h2>
+    <p class="reference">border-bottom-width:1px; border-bottom-style:solid;
+            border-bottom-color: black;</p>
+    <p style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color: black;">Lorem</p>
+    <h2>Rahmen links</h2>
+    <p class="reference">border-left-width:1px; border-left-style:solid; border-left-color:
+            black;</p>
+    <p style="border-left-width:1px; border-left-style:solid; border-left-color: black;">Lorem</p>
+    <h2>Rahmen rechts</h2>
+    <p class="reference">border-right-width:1px; border-right-style:solid; border-right-color:
+            black;</p>
+    <p style="border-right-width:1px; border-right-style:solid; border-right-color: black;">Lorem</p>
+    <h2>Rahmen an allen Seiten</h2>
+    <h3>Rahmen-Attribute einzeln angegeben</h3>
+    <p class="reference">border-width:1px; border-style:solid; border-color: black;</p>
+    <p style="border-width:1px; border-style:solid; border-color: black">Lorem</p>
+    <h3>Rahmen-Attribut kombiniert</h3>
+    <p class="reference">border: 1px solid black;</p>
+    <p style="border: 1px solid black;">Lorem</p>
+    <h2>Rahmenstil</h2>
+    <p class="reference">border-style:solid;</p>
+    <p style="border-width:10px; border-style:solid; border-color: black;"> </p>
+    <p class="reference">border-style:dotted;</p>
+    <p style="border-width:10px; border-style:dotted; border-color: black;"> </p>
+    <p class="reference">border-style:dashed;</p>
+    <p style="border-width:10px; border-style:dashed; border-color: black;"> </p>
+    <p class="reference">border-style:double;</p>
+    <p style="border-width:10px; border-style:double; border-color: black;"> </p>
+    <p class="reference">border-style:groove;</p>
+    <p style="border-width:10px; border-style:groove; border-color: black;"> </p>
+    <p class="reference">border-style:ridge;</p>
+    <p style="border-width:10px; border-style:ridge; border-color: black;"> </p>
+    <p class="reference">border-style:inset;</p>
+    <p style="border-width:10px; border-style:inset; border-color: black;"> </p>
+    <p class="reference">border-style:outset;</p>
+    <p style="border-width:10px; border-style:outset; border-color: black;"> </p>
+    <h2>Rahmendicke</h2>
+    <p class="reference">border-width:1px;</p>
+    <p style="border-width:1px; border-style:solid; border-color: black;"> </p>
+    <p class="reference">border-width:2px;</p>
+    <p style="border-width:2px; border-style:solid; border-color: black;"> </p>
+    <p class="reference">border-width:4px;</p>
+    <p style="border-width:4px; border-style:solid; border-color: black;"> </p>
+    <p class="reference">border-width:7px;</p>
+    <p style="border-width:7px; border-style:solid; border-color: black;"> </p>
+    <p class="reference">border-width:10px;</p>
+    <p style="border-width:10px; border-style:solid; border-color: black;"> </p>
+      </div>
+    </body>
+</html>

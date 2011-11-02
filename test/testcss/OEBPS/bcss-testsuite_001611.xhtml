@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <title>CSS Compatibility</title>
+      <link rel="stylesheet" href="stylesheet.css" />
+      <style type="text/css">
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family : district-thin;
+             src : url(fonts/distth.otf);
+         format("opentype");
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before {
+             content : "Text davor "
+         }
+         #after:after {
+             content : "Text danach "
+         }
+      </style>
+   </head>
+    <body>
+    <div class="section" id="background-images">
+    <h1>Hintergrundbilder</h1>
+    <p class="reference">background-image:url(images/le-tex-logo.jpg)</p>
+    <p style="border:1px solid black; width:250px; height:100px; background-image:url(images/le-tex-logo.jpg)"> </p>
+    <h2>Positionierung von Hintergrundbildern</h2>
+    <p class="reference">background-position: 3em 3em</p>
+    <p style="border:1px solid black; width:250px; height:100px; background-image:url(images/le-tex-logo.jpg); background-position: 3em 3em"> </p>
+    <h2>Wiederholung von Hintergrundbildern</h2>
+    <p class="reference">background-repeat: no-repeat</p>
+    <p style="border:1px solid black; background-repeat: no-repeat; width:500px; height:200px; background-image:url(images/le-tex-logo.jpg)"> </p>
+    <p class="reference">background-repeat: repeat-x</p>
+    <p style="border:1px solid black; background-repeat: repeat-x; width:500px; height:200px; background-image:url(images/le-tex-logo.jpg)"> </p>
+    <p class="reference">background-repeat: repeat-y</p>
+    <p style="border:1px solid black; background-repeat: repeat-y; width:500px; height:200px; background-image:url(images/le-tex-logo.jpg)"> </p>
+      </div>
+    </body>
+</html>

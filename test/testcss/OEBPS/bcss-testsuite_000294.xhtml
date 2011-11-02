@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <title>CSS Compatibility</title>
+      <link rel="stylesheet" href="stylesheet.css" />
+      <style type="text/css">
+         .reference {
+             font-family : Courier, monospace, fixed;
+         }
+         @font-face {
+             font-family : district-thin;
+             src : url(fonts/distth.otf);
+         format("opentype");
+         }
+         /* Pseudo Klassen */
+         #first-letter:first-letter {
+             font-size : 2em;
+         }
+         #first-line:first-line {
+             font-weight : bold;
+         }
+         #hover:hover {
+             font-weight : bold;
+         }
+         #before:before {
+             content : "Text davor "
+         }
+         #after:after {
+             content : "Text danach "
+         }
+      </style>
+   </head>
+    <body>
+    <div class="section" id="float">
+    <h1>Umfluss</h1>
+    <h3>Links umfließen</h3>
+    <p class="reference">float:left</p>
+    <p style="float:left">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+    <p>Aenean commodo ligula eget dolor. Aenean massa.</p>
+    <p style="clear:both"></p>
+    <h3>Rechts umfließen</h3>
+    <p class="reference">float:right</p>
+    <p style="float:right">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+    <p style="clear:both;">Aenean commodo ligula eget dolor. Aenean massa.</p>
+      </div>
+    </body>
+</html>

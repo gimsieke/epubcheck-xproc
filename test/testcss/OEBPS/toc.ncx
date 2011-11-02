@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="en">
+   <head>
+      <meta name="dtb:uid" content="http://www.snee.com/epub/pg23598"/>
+      <meta name="dtb:depth" content="1"/>
+      <meta name="dtb:totalPageCount" content="0"/>
+      <meta name="dtb:maxPageNumber" content="0"/>
+   </head>
+   <docTitle>
+      <text/>
+   </docTitle>
+   <navMap>
+      <navPoint id="i1" class="h1" playOrder="1">
+         <navLabel>
+            <text>Positionierung</text>
+         </navLabel>
+         <content src="bcss-testsuite_000018.xhtml#visualization"/>
+      </navPoint>
+      <navPoint id="i2" class="h1" playOrder="2">
+         <navLabel>
+            <text>Anzeigeart</text>
+         </navLabel>
+         <content src="bcss-testsuite_000070.xhtml#d3e70"/>
+      </navPoint>
+      <navPoint id="i3" class="h1" playOrder="3">
+         <navLabel>
+            <text>Anzeigebereich</text>
+         </navLabel>
+         <content src="bcss-testsuite_000122.xhtml#d3e122"/>
+      </navPoint>
+      <navPoint id="i4" class="h1" playOrder="4">
+         <navLabel>
+            <text>Sichtbarkeit</text>
+         </navLabel>
+         <content src="bcss-testsuite_000135.xhtml#d3e135"/>
+      </navPoint>
+      <navPoint id="i5" class="h1" playOrder="5">
+         <navLabel>
+            <text>Anzeigebereich-Steuerung</text>
+         </navLabel>
+         <content src="bcss-testsuite_000223.xhtml#d3e223"/>
+      </navPoint>
+      <navPoint id="i6" class="h1" playOrder="6">
+         <navLabel>
+            <text>Schreibrichtung</text>
+         </navLabel>
+         <content src="bcss-testsuite_000259.xhtml#d3e259"/>
+      </navPoint>
+      <navPoint id="i7" class="h1" playOrder="7">
+         <navLabel>
+            <text>Überlappung von Elementen</text>
+         </navLabel>
+         <content src="bcss-testsuite_000269.xhtml#d3e269"/>
+      </navPoint>
+      <navPoint id="i8" class="h1" playOrder="8">
+         <navLabel>
+            <text>Umfluss</text>
+         </navLabel>
+         <content src="bcss-testsuite_000294.xhtml#float"/>
+      </navPoint>
+      <navPoint id="i9" class="h1" playOrder="9">
+         <navLabel>
+            <text>Abstände</text>
+         </navLabel>
+         <content src="bcss-testsuite_000327.xhtml#marginpadding"/>
+      </navPoint>
+      <navPoint id="i10" class="h1" playOrder="10">
+         <navLabel>
+            <text>Schrift</text>
+         </navLabel>
+         <content src="bcss-testsuite_000435.xhtml#font-styles"/>
+      </navPoint>
+      <navPoint id="i11" class="h1" playOrder="11">
+         <navLabel>
+            <text>Text</text>
+         </navLabel>
+         <content src="bcss-testsuite_000766.xhtml#text"/>
+      </navPoint>
+      <navPoint id="i12" class="h1" playOrder="12">
+         <navLabel>
+            <text>Schrift und Abstände</text>
+         </navLabel>
+         <content src="bcss-testsuite_000875.xhtml#spacing"/>
+      </navPoint>
+      <navPoint id="i13" class="h1" playOrder="13">
+         <navLabel>
+            <text>Listen</text>
+         </navLabel>
+         <content src="bcss-testsuite_000909.xhtml#lists"/>
+      </navPoint>
+      <navPoint id="i14" class="h1" playOrder="14">
+         <navLabel>
+            <text>Absatz</text>
+         </navLabel>
+         <content src="bcss-testsuite_001024.xhtml#paragraph-linebreaks"/>
+      </navPoint>
+      <navPoint id="i15" class="h1" playOrder="15">
+         <navLabel>
+            <text>Tabellenformatierung</text>
+         </navLabel>
+         <content src="bcss-testsuite_001068.xhtml#tables"/>
+      </navPoint>
+      <navPoint id="i16" class="h1" playOrder="16">
+         <navLabel>
+            <text>Rahmen</text>
+         </navLabel>
+         <content src="bcss-testsuite_001262.xhtml#borders"/>
+      </navPoint>
+      <navPoint id="i17" class="h1" playOrder="17">
+         <navLabel>
+            <text>Farbe</text>
+         </navLabel>
+         <content src="bcss-testsuite_001418.xhtml#colors"/>
+      </navPoint>
+      <navPoint id="i18" class="h1" playOrder="18">
+         <navLabel>
+            <text>Hintergrundbilder</text>
+         </navLabel>
+         <content src="bcss-testsuite_001611.xhtml#background-images"/>
+      </navPoint>
+      <navPoint id="i19" class="h1" playOrder="19">
+         <navLabel>
+            <text>Pseudoklassen</text>
+         </navLabel>
+         <content src="bcss-testsuite_001655.xhtml#pseudo-classes"/>
+      </navPoint>
+      <navPoint id="i20" class="h1" playOrder="20">
+         <navLabel>
+            <text>Umbruchkontrolle</text>
+         </navLabel>
+         <content src="bcss-testsuite_001708.xhtml#linebreaks"/>
+      </navPoint>
+      <navPoint id="i21" class="h1" playOrder="21">
+         <navLabel>
+            <text>Einheiten</text>
+         </navLabel>
+         <content src="bcss-testsuite_001749.xhtml#units"/>
+      </navPoint>
+      <navPoint id="i22" class="h1" playOrder="22">
+         <navLabel>
+            <text>Breiten- und Höhenangaben</text>
+         </navLabel>
+         <content src="bcss-testsuite_001780.xhtml#dimensions"/>
+      </navPoint>
+      <navPoint id="i23" class="h1" playOrder="23">
+         <navLabel>
+            <text>HTML Support</text>
+         </navLabel>
+         <content src="bcss-testsuite_001827.xhtml#d3e1827"/>
+      </navPoint>
+      <navPoint id="i24" class="h1" playOrder="24">
+         <navLabel>
+            <text>Test</text>
+         </navLabel>
+         <content src="bcss-testsuite_001835.xhtml#d3e1835"/>
+      </navPoint>
+   </navMap>
+</ncx>
