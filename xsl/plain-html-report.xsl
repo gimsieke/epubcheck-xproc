@@ -10,7 +10,7 @@
   version="2.0"
   >
 
-  <xsl:output method="xml" indent="yes" />
+  <xsl:output method="xhtml" indent="yes" />
 
   <xsl:param name="schematron-content-links" as="xs:string" />
 
@@ -20,7 +20,18 @@
     </div>
   </xsl:template>
 
-  <xsl:template match="c:error">
+  <xsl:template match="c:errors">
+    <div>
+      <p>
+        <span class="err-block">ERROR</span>
+        <xsl:text> </xsl:text>
+        <xsl:apply-templates select="." mode="fileatts" />
+        <xsl:apply-templates />
+      </p>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="c:error[not(parent::c:errors)]">
     <div>
       <p>
         <span class="err-block">ERROR</span>
@@ -29,6 +40,11 @@
       </p>
       <xsl:apply-templates />
     </div>
+  </xsl:template>
+
+  <xsl:template match="c:error">
+    <br/>
+    <xsl:apply-templates />
   </xsl:template>
 
   <xsl:template match="c:report[. eq 'ok']">
@@ -51,7 +67,11 @@
   </xsl:template>
 
   <xsl:template match="*" mode="fileatts">
-    <b><xsl:value-of select="@part" /></b> file <xsl:value-of select="@href" />
+    <xsl:value-of select="@validation-type" /> validation of <xsl:value-of select="@part" /> file <xsl:value-of select="if (@href ne '') then @href else '[from source port]'" />
+  </xsl:template>
+
+  <xsl:template match="reports">
+    <xsl:apply-templates />
   </xsl:template>
 
 </xsl:stylesheet>

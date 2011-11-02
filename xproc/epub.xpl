@@ -70,6 +70,34 @@
   </p:declare-step>
 
 
+  <!-- For loading a RNG or RNC schema. First try loading an XML file. If it fails, load it as data. 
+       Since data does not accept a variable as href, we will use p:http-request on a file: resource as a workaround. --> 
+  <p:declare-step type="epub:load-or-data" name="doc">
+    <p:option name="href" />
+    <p:output port="result" primary="true" />
+    <p:try name="try">
+      <p:group>
+        <p:load>
+          <p:with-option name="href" select="$href" />
+        </p:load>
+      </p:group>
+      <p:catch name="catch">
+        <p:identity>
+          <p:input port="source">
+            <p:inline>
+              <c:request method="GET" detailed="false" /> 
+            </p:inline>
+          </p:input>
+        </p:identity>
+        <p:add-attribute match="/c:request" attribute-name="href">
+          <p:with-option name="attribute-value" select="p:resolve-uri($href)" />
+        </p:add-attribute>
+        <p:http-request/>
+        <p:rename match="/c:body" new-name="c:data" />
+      </p:catch>
+    </p:try>
+  </p:declare-step>
+
 
   <p:declare-step type="epub:source-or-href-doc" name="doc">
     <p:option name="href" />
@@ -93,23 +121,17 @@
 
 
   <p:declare-step type="epub:validate-part" name="validate-part">
-    <p:option name="href" select="''" />
+    <p:option name="href" select="''"/>
     <p:option name="display-href" select="''" />
     <p:option name="epub-version" />
     <p:option name="content-type" />
-    <p:output port="result" primary="true" />
-    <p:output port="report" sequence="true">
-      <p:pipe step="try" port="report" />
+    <p:output port="result" primary="true">
+      <p:pipe step="doc" port="result" />
     </p:output>
-    <p:input port="source" primary="true"/>  
-
-    <p:variable name="validation-type" select="//validation[@target eq $content-type][@epubversion eq $epub-version]/@type">
-      <p:document href="../conf/versionmap.xml" />
-    </p:variable>
-    
-    <p:variable name="schema-file" select="//validation[@target eq $content-type][@epubversion eq $epub-version]/@href">
-      <p:document href="../conf/versionmap.xml" />
-    </p:variable>
+    <p:output port="report" sequence="true">
+      <p:pipe step="validations" port="report" />
+    </p:output>
+    <p:input port="source" primary="true"/>
 
     <!-- If $href is non-empty the document to be validated is read from the $href’d file,
          otherwise from the default readable port. Errors in loading or parsing these 
@@ -118,81 +140,116 @@
       <p:with-option name="href" select="if ($href ne '') then $href else ()" />
     </epub:source-or-href-doc>
 
-    <p:load name="schema">
-      <p:with-option name="href" select="$schema-file" />
-    </p:load>
+    <!-- There may be more than one validation in the conf file. Iterate over all of them. -->
+    <p:for-each name="validations">
+      <p:iteration-source select="//validation[@target eq $content-type][@epubversion eq $epub-version]">
+        <p:document href="../conf/versionmap.xml" />
+      </p:iteration-source>
+      <p:output port="report">
+        <p:pipe step="try" port="report" />
+      </p:output>
 
-    <p:try name="try">
-      <p:group>
-        <p:output port="report">
-          <p:pipe step="ok" port="result" />
-        </p:output>
-        <p:output port="result" primary="true"/>
+      <p:variable name="validation-type" select="/validation/@type" />
+      <p:variable name="schema-file" select="/validation/@href" />
+  
+      <epub:load-or-data name="schema">
+        <p:with-option name="href" select="$schema-file" />
+      </epub:load-or-data>
+  
+      <p:try name="try">
+        <p:group>
+          <p:output port="report">
+            <p:pipe step="ok" port="result" />
+          </p:output>
+  
+          <p:add-attribute match="/*" attribute-name="href">
+            <p:input port="source">
+              <p:inline>
+                <c:report>ok</c:report>
+              </p:inline>
+            </p:input>
+            <p:with-option name="attribute-value" select="$href" />
+          </p:add-attribute>
+          <p:add-attribute match="/*" attribute-name="validation-type">
+            <p:with-option name="attribute-value" select="$validation-type" />
+          </p:add-attribute>
+          <p:add-attribute match="/*" attribute-name="part" name="ok">
+            <p:with-option name="attribute-value" select="$content-type" />
+          </p:add-attribute>
+  
+          <p:choose>
+            <p:when test="$validation-type = ('rng', 'rnc')">
+              <p:validate-with-relax-ng>
+                <p:input port="source">
+                  <p:pipe step="doc" port="result"/>
+                </p:input>
+                <p:input port="schema">
+                  <p:pipe step="schema" port="result"/>
+                </p:input>
+              </p:validate-with-relax-ng>
+              <p:sink/>
+            </p:when>
+            <p:when test="$validation-type eq 'nvdl'">
+              <cx:nvdl>
+                <p:input port="source">
+                  <p:pipe step="doc" port="result"/>
+                </p:input>
+                <p:input port="nvdl">
+                  <p:pipe step="schema" port="result"/>
+                </p:input>
+                <p:input port="schemas">
+                  <p:empty/>
+                </p:input>
+              </cx:nvdl>
+              <p:sink/>
+            </p:when>
+            <p:when test="$validation-type eq 'schematron'">
+              <p:validate-with-schematron assert-valid="false">
+                <p:input port="source">
+                  <p:pipe step="doc" port="result"/>
+                </p:input>
+                <p:input port="schema">
+                  <p:pipe step="schema" port="result"/>
+                </p:input>
+                <p:input port="parameters">
+                  <p:inline>
+                    <c:param-set>
+                      <c:param name="allow-foreign" value="true" />
+                      <c:param name="select-contexts" value="//" />
+                      <c:param name="visit-text" value="neither-true-nor-false" />
+                    </c:param-set>
+                  </p:inline>
+                </p:input>
+              </p:validate-with-schematron>
+              <p:sink/>
+            </p:when>
+          </p:choose>
+        </p:group>
+        <p:catch name="catch1">
+          <p:output port="report">
+            <p:pipe port="result" step="fwd-errors"/>
+          </p:output>
+  
+          <p:identity>
+            <p:input port="source">
+              <p:pipe step="catch1" port="error" />
+            </p:input>
+          </p:identity>
+          <p:add-attribute match="/*" attribute-name="href">
+            <p:with-option name="attribute-value" select="if ($display-href ne '') then $display-href else $href" />
+          </p:add-attribute>
+          <p:add-attribute match="/*" attribute-name="validation-type">
+            <p:with-option name="attribute-value" select="$validation-type" />
+          </p:add-attribute>
+          <p:add-attribute match="/*" attribute-name="part" name="fwd-errors">
+            <p:with-option name="attribute-value" select="$content-type" />
+          </p:add-attribute>
+          <p:sink/>
+        </p:catch>
+      </p:try>
 
-        <p:add-attribute match="/*" attribute-name="href">
-          <p:input port="source">
-            <p:inline>
-              <c:report>ok</c:report>
-            </p:inline>
-          </p:input>
-          <p:with-option name="attribute-value" select="$href" />
-        </p:add-attribute>
-        <p:add-attribute match="/*" attribute-name="part" name="ok">
-          <p:with-option name="attribute-value" select="$content-type" />
-        </p:add-attribute>
+    </p:for-each>
 
-        <p:choose>
-          <p:when test="$validation-type eq 'rng'">
-            <p:validate-with-relax-ng>
-              <p:input port="source">
-                <p:pipe step="doc" port="result"/>
-              </p:input>
-              <p:input port="schema">
-                <p:pipe step="schema" port="result"/>
-              </p:input>
-            </p:validate-with-relax-ng>
-          </p:when>
-          <p:when test="$validation-type eq 'nvdl'">
-            <cx:nvdl>
-              <p:input port="source">
-                <p:pipe step="doc" port="result"/>
-              </p:input>
-              <p:input port="nvdl">
-                <p:pipe step="schema" port="result"/>
-              </p:input>
-              <p:input port="schemas">
-                <p:empty/>
-              </p:input>
-            </cx:nvdl>
-          </p:when>
-        </p:choose>
-      </p:group>
-      <p:catch name="catch1">
-        <p:output port="report">
-          <p:pipe port="result" step="fwd-errors"/>
-        </p:output>
-        <p:output port="result" primary="true" />
-
-        <p:identity>
-          <p:input port="source">
-            <p:pipe step="catch1" port="error" />
-          </p:input>
-        </p:identity>
-        <p:add-attribute match="/*" attribute-name="href">
-          <p:with-option name="attribute-value" select="if ($display-href ne '') then $display-href else $href" />
-        </p:add-attribute>
-        <p:add-attribute match="/*" attribute-name="part" name="fwd-errors">
-          <p:with-option name="attribute-value" select="$content-type" />
-        </p:add-attribute>
-        
-        <p:sink/>
-        <p:identity>
-          <p:input port="source">
-            <p:pipe step="doc" port="result" />
-          </p:input>
-        </p:identity>
-      </p:catch>
-    </p:try>
 
   </p:declare-step>
 
@@ -202,13 +259,13 @@
     <p:option name="opfdir" />
     <p:input port="source" primary="true" />
     <p:output port="result" primary="true" />
-    <p:output port="report">
+    <p:output port="report" sequence="true">
       <p:pipe step="try" port="report" />
     </p:output>
 
     <p:try name="try">
       <p:group>
-        <p:output port="report">
+        <p:output port="report" sequence="true">
           <p:pipe step="validate-part" port="report" />
         </p:output>
         <p:output port="result" primary="true"/>
@@ -220,7 +277,7 @@
         </epub:validate-part>
       </p:group>
       <p:catch name="catch1">
-        <p:output port="report">
+        <p:output port="report" sequence="true">
           <p:pipe port="result" step="fwd-errors"/>
         </p:output>
         <p:output port="result" primary="true">
@@ -246,13 +303,13 @@
   <p:declare-step type="epub:validate-opf" name="validate-opf">
     <p:input port="source" primary="true" />
     <p:output port="result" primary="true" />
-    <p:output port="report">
+    <p:output port="report" sequence="true">
       <p:pipe step="try" port="report" />
     </p:output>
 
     <p:try name="try">
       <p:group>
-        <p:output port="report">
+        <p:output port="report" sequence="true">
           <p:pipe step="validate-part" port="report" />
         </p:output>
         <p:output port="result" primary="true"/>
@@ -263,7 +320,7 @@
         </epub:validate-part>
       </p:group>
       <p:catch name="catch1">
-        <p:output port="report">
+        <p:output port="report" sequence="true">
           <p:pipe port="result" step="fwd-errors"/>
         </p:output>
         <p:output port="result" primary="true">
@@ -300,7 +357,7 @@
 
     <p:for-each name="for-each">
       <p:output port="result" primary="true" />
-      <p:output port="report">
+      <p:output port="report" sequence="true">
         <p:pipe step="validate-part" port="report" />
       </p:output>
 
@@ -388,7 +445,7 @@
     </p:load>
 
     <p:validate-with-schematron name="schematron" assert-valid="false">
-    <p:log port="report" href="schematron.xml"/>
+<!--     <p:log port="report" href="schematron.xml"/> -->
 
       <p:input port="source">
         <p:pipe step="schematron-spinehtml" port="source" />
