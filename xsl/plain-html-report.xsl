@@ -54,4 +54,8 @@
     <b><xsl:value-of select="@part" /></b> file <xsl:value-of select="@href" />
   </xsl:template>
 
+  <xsl:template match="reports">
+    <xsl:apply-templates />
+  </xsl:template>
+
 </xsl:stylesheet>
