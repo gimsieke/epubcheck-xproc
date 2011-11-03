@@ -1,0 +1,239 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/266/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg
+END
+svg-style.rng
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-style.rng
+END
+svg-profile.rng
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-profile.rng
+END
+svg-qname.rng
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-qname.rng
+END
+svg-conditional.rng
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-conditional.rng
+END
+svg-basic-filter.rng
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-basic-filter.rng
+END
+svg-basic-clip.rng
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-basic-clip.rng
+END
+svg-xlink-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-xlink-attrib.rng
+END
+svg-view.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-view.rng
+END
+svg-cursor.rng
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-cursor.rng
+END
+svg-animation.rng
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-animation.rng
+END
+svg-image.rng
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-image.rng
+END
+svg-graphics-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-graphics-attrib.rng
+END
+svg-filter.rng
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-filter.rng
+END
+svg-basic-font.rng
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-basic-font.rng
+END
+svg-clip.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-clip.rng
+END
+svg-mask.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-mask.rng
+END
+svg-opacity-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-opacity-attrib.rng
+END
+svg-extensibility.rng
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-extensibility.rng
+END
+svg-gradient.rng
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-gradient.rng
+END
+svg-paint-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-paint-attrib.rng
+END
+svg-datatypes.rng
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/266/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-datatypes.rng
+END
+svg-shape.rng
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-shape.rng
+END
+svg-structure.rng
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-structure.rng
+END
+svg-viewport-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-viewport-attrib.rng
+END
+svg-basic-graphics-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-basic-graphics-attrib.rng
+END
+svg-basic-text.rng
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-basic-text.rng
+END
+svg-script.rng
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-script.rng
+END
+svg-hyperlink.rng
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-hyperlink.rng
+END
+svg-container-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-container-attrib.rng
+END
+svg-font.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-font.rng
+END
+svg-graphevents-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-graphevents-attrib.rng
+END
+svg-core-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-core-attrib.rng
+END
+svg-pattern.rng
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-pattern.rng
+END
+svg-docevents-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-docevents-attrib.rng
+END
+svg-extresources-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-extresources-attrib.rng
+END
+svg-basic-structure.rng
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-basic-structure.rng
+END
+svg-marker.rng
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-marker.rng
+END
+svg-text.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-text.rng
+END
+svg-animevents-attrib.rng
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/svg/svg-animevents-attrib.rng
+END

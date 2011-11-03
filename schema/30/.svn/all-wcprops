@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/286/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30
+END
+media-overlay-30.nvdl
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/media-overlay-30.nvdl
+END
+epub-xhtml-30.sch
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/222/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-xhtml-30.sch
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/LICENSE
+END
+epub-svg-30.sch
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/222/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-svg-30.sch
+END
+epub-xhtml-30-PREP.sch
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/222/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-xhtml-30-PREP.sch
+END
+epub-xhtml-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/222/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-xhtml-30.rnc
+END
+package-30.sch
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/package-30.sch
+END
+epub-svg-30-PREP.sch
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/222/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-svg-30-PREP.sch
+END
+ocf-container-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/222/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/ocf-container-30.rnc
+END
+epub-svg-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-svg-30.rnc
+END
+media-overlay-30.sch
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/media-overlay-30.sch
+END
+ocf-signatures-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/ocf-signatures-30.rnc
+END
+package-30-PREP.sch
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/192/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/package-30-PREP.sch
+END
+package-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/272/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/package-30.rnc
+END
+media-overlay-30-PREP.sch
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/192/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/media-overlay-30-PREP.sch
+END
+media-overlay-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/media-overlay-30.rnc
+END
+epub-nav-30.nvdl
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-nav-30.nvdl
+END
+ocf-encryption-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/ocf-encryption-30.rnc
+END
+epub30-catalog.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/222/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub30-catalog.xml
+END
+epub-xhtml-30.nvdl
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-xhtml-30.nvdl
+END
+epub-nav-30.sch
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-nav-30.sch
+END
+epub-svg-30.nvdl
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-svg-30.nvdl
+END
+epub-nav-30-PREP.sch
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/192/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-nav-30-PREP.sch
+END
+package-30.nvdl
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/package-30.nvdl
+END
+epub-nav-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/epub-nav-30.rnc
+END

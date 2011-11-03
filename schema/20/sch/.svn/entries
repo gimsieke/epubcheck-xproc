@@ -1,0 +1,52 @@
+8
+
+dir
+289
+http://epubcheck.googlecode.com/svn/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/sch
+http://epubcheck.googlecode.com/svn
+
+
+
+2011-08-30T08:45:14.211668Z
+169
+biordach
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ae9e6ba8-4d41-0410-bbe8-1710a195d073
+
+opf.sch
+file
+
+
+
+
+2011-11-03T13:57:34.000000Z
+fb1a510ca9607646e891657a0bb43af1
+2011-08-30T08:45:14.211668Z
+169
+biordach
+
+ncx.sch
+file
+
+
+
+
+2011-11-03T13:57:34.000000Z
+ed8694412a34992f08d8331b059c692d
+2011-08-30T08:45:14.211668Z
+169
+biordach
+

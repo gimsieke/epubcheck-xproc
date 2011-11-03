@@ -4,10 +4,10 @@
 	xmlns:epub="http://www.idpf.org/2007/ops"
   version="1.0">
 
+  <p:option name="epubfile" />
+
   <p:import href="../lib/xproc-extensions.xpl" />
   <p:import href="unzip.xpl" />
-
-  <p:option name="epubfile" />
 
   <epub:opf name="opf">
     <p:with-option name="epubfile" select="$epubfile" />

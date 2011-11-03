@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/mathml
+END
+mathml3-presentation.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/mathml/mathml3-presentation.rnc
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/mathml/LICENSE
+END
+mathml3-strict-content.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/mathml/mathml3-strict-content.rnc
+END
+mathml3-common.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/mathml/mathml3-common.rnc
+END
+mathml3-content.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/mathml/mathml3-content.rnc
+END

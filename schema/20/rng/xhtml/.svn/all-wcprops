@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/276/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml
+END
+datatypes.rng
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/datatypes.rng
+END
+csismap.rng
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/csismap.rng
+END
+param.rng
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/param.rng
+END
+inlstyle.rng
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/inlstyle.rng
+END
+events.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/events.rng
+END
+pres.rng
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/pres.rng
+END
+list.rng
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/list.rng
+END
+ssismap.rng
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/ssismap.rng
+END
+basic-form.rng
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/basic-form.rng
+END
+struct.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/struct.rng
+END
+edit.rng
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/edit.rng
+END
+target.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/target.rng
+END
+table.rng
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/table.rng
+END
+hypertext.rng
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/hypertext.rng
+END
+link.rng
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/link.rng
+END
+style.rng
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/style.rng
+END
+form.rng
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/form.rng
+END
+iframe.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/iframe.rng
+END
+legacy.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/legacy.rng
+END
+bdo.rng
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/bdo.rng
+END
+script.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/script.rng
+END
+nameident.rng
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/nameident.rng
+END
+object.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/object.rng
+END
+basic-table.rng
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/basic-table.rng
+END
+attribs.rng
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/276/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/attribs.rng
+END
+base.rng
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/base.rng
+END
+frames.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/frames.rng
+END
+ruby.rng
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/ruby.rng
+END
+image.rng
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/image.rng
+END
+text.rng
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/text.rng
+END
+applet.rng
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/applet.rng
+END
+meta.rng
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/xhtml/meta.rng
+END

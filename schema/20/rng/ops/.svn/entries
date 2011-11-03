@@ -1,0 +1,40 @@
+8
+
+dir
+289
+http://epubcheck.googlecode.com/svn/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/20/rng/ops
+http://epubcheck.googlecode.com/svn
+
+
+
+2011-08-30T08:45:14.211668Z
+169
+biordach
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ae9e6ba8-4d41-0410-bbe8-1710a195d073
+
+ops-switch.rng
+file
+
+
+
+
+2011-11-03T13:57:33.000000Z
+3d9fbb0c3875b72cfa65a895cd182167
+2011-08-30T08:45:14.211668Z
+169
+biordach
+

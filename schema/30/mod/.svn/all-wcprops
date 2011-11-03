@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/286/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod
+END
+epub-prefix-attr.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/epub-prefix-attr.rnc
+END
+datatypes.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/222/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/datatypes.rnc
+END
+epub-mathml3-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/epub-mathml3-30.rnc
+END
+epub-ssml-attrs.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/epub-ssml-attrs.rnc
+END
+epub-type-attr.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/epub-type-attr.rnc
+END
+epub-xhtml-svg11-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/epub-xhtml-svg11-30.rnc
+END
+epub-xhtml-mathml3-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/epub-xhtml-mathml3-30.rnc
+END
+epub-svg11-re.sch
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/192/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/epub-svg11-re.sch
+END
+epub-svg11-30.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/epub-svg11-30.rnc
+END
+epub-switch.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/epub-switch.rnc
+END
+id-unique.sch
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/id-unique.sch
+END
+epub-trigger.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/169/branches/epub3/com.adobe.epubcheck/src/com/adobe/epubcheck/schema/30/mod/epub-trigger.rnc
+END

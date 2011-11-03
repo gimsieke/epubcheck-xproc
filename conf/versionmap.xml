@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <versionmap>
-  <validation type="nvdl" target="spine-html" epubversion="2.0" href="../epubcheck/schema/20/rng/ops20.nvdl" />
-  <validation type="rng" target="opf" epubversion="2.0" href="../epubcheck/schema/20/rng/opf.rng" />
-  <validation type="rng" target="ncx" epubversion="2.0" href="../epubcheck/schema/20/rng/ncx.rng" />
-  <validation type="rnc" target="spine-html" epubversion="3.0" href="../epubcheck/schema/30/epub-xhtml-30.rnc" />
-  <validation type="schematron" target="spine-html" epubversion="3.0" href="../epubcheck/schema/30/epub-xhtml-30.sch" />
+  <validation type="nvdl" target="spine-html" epubversion="2.0" href="../schema/20/rng/ops20.nvdl" />
+  <validation type="rng" target="opf" epubversion="2.0" href="../schema/20/rng/opf.rng" />
+  <validation type="rng" target="ncx" epubversion="2.0" href="../schema/20/rng/ncx.rng" />
+  <validation type="rnc" target="spine-html" epubversion="3.0" href="../schema/30/epub-xhtml-30.rnc" />
+  <validation type="schematron" target="spine-html" epubversion="3.0" href="../schema/30/epub-xhtml-30.sch" />
 </versionmap>

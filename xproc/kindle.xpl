@@ -10,10 +10,10 @@
   <p:option name="epubdir" />
   <p:option name="lang" select="'en'"/>
 
+  <p:serialization port="result" omit-xml-declaration="false" />
+
   <p:import href="epub.xpl" />
   <p:import href="basic.xpl" />
-
-  <p:serialization port="result" omit-xml-declaration="false" />
 
   <epub:load-if-exists name="l10n">
     <p:with-option name="href" select="concat('../l10n/kindle_', $lang, '.xml')" />
@@ -36,7 +36,7 @@
   </epub:css-expanded-spinecontent>
 
   <epub:schematron-spinehtml name="schematron-spinehtml">
-    <p:with-option name="schematron" select="'../sch/kindle.sch'" />
+    <p:with-option name="schematron" select="'../schema/letex/sch/kindle.sch'" />
     <p:input port="l10n">
       <p:pipe step="l10n" port="result" />
     </p:input>
