@@ -17,37 +17,21 @@
          * -->
 
     <p:input port="source"/>
+<!-- for testing 
+    <p:output port="result">
+        <p:pipe port="report" step="opf-check-filerefs"/>
+    </p:output>
+    
+-->
     <p:output port="result"/>
+    <p:output port="report"/>
     
     <p:option name="epubfile"/>
-    
-    <p:import href="../lib/xproc-extensions.xpl"/>
-    <p:import href="unzip.xpl"/>
 
-    <epub:opf name="opf">
-        <p:with-option name="epubfile" select="$epubfile" />
-    </epub:opf>
+    <p:import href="epub.xpl"/>
     
-    <cx:unzip content-type="application/epub+zip" name="epubdir">
-        <p:with-option name="href" select="$epubfile"/>
-    </cx:unzip>
-    
-    <p:wrap-sequence wrapper="epub">
-        <p:input port="source">
-            <p:pipe port="result" step="opf"/>
-            <p:pipe port="result" step="epubdir"/>
-        </p:input>
-        <p:log port="result" href="log.xml"/>
-    </p:wrap-sequence>
-    
-     
-    <p:xslt name="check-filerefs">
-        <p:input port="stylesheet">
-            <p:document href="../xsl/opf-check-filerefs.xsl"/>
-        </p:input>
-        <p:input port="parameters">
-            <p:empty/>
-        </p:input>
-    </p:xslt>
-    
+    <epub:opf-check-filerefs name="opf-check-filerefs">
+        <p:with-option name="epubfile" select="$epubfile"/>
+    </epub:opf-check-filerefs>
+
 </p:declare-step>
