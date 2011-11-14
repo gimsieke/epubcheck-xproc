@@ -17,20 +17,27 @@
 
     <xsl:template match="opf:item">
         <xsl:variable name="opfFileRef" select="@href"/>
-        <xsl:variable name="zipItems" select="(for $i in ancestor::epub/c:zipfile/c:file return replace($i/@name, 'OEBPS/', ''))"/>
+        <xsl:variable name="zipItems"
+            select="(for $i in ancestor::epub/c:zipfile/c:file return replace($i/@name, 'OEBPS/', ''))"/>
         <xsl:variable name="nonMatchedItems" select="(for $i in $zipItems return $opfFileRef = $i)"/>
         <xsl:if test="every $i in $nonMatchedItems satisfies $i = false()">
-            <epub:filenotfound href="{$opfFileRef}"></epub:filenotfound>
+            <epub:filenotfound href="{$opfFileRef}"/>
         </xsl:if>
     </xsl:template>
-     
+
     <xsl:template match="c:file">
         <xsl:variable name="zipFileRef" select="replace(@name, 'OEBPS/', '')"/>
-        <xsl:variable name="opfItems" select="(for $i in ancestor::epub/opf:package/opf:manifest/opf:item return $i/@href)"/>
+        <xsl:variable name="opfItems"
+            select="(for $i in ancestor::epub/opf:package/opf:manifest/opf:item return $i/@href)"/>
         <xsl:variable name="nonMatchedItems" select="(for $i in $zipFileRef return $opfItems = $i)"/>
         <xsl:if test="every $i in $nonMatchedItems satisfies $i = false()">
-            <epub:filenotinmanifest href="{$zipFileRef}"></epub:filenotinmanifest>
+            <xsl:if
+                test="not( matches( $zipFileRef, 'content.opf' ) 
+                        or matches( $zipFileRef, 'container.xml' ) 
+                        or matches( $zipFileRef, 'mimetype' ))">
+                <epub:filenotinmanifest href="{$zipFileRef}"/>
+            </xsl:if>
         </xsl:if>
     </xsl:template>
-     
+
 </xsl:stylesheet>
