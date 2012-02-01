@@ -3,6 +3,7 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
 
   <group prefer="system"> 
+    <rewriteSystem systemIdStartString="http://www.w3.org/TR/xhtml1/DTD" rewritePrefix="xhtml1" />
     <rewriteSystem systemIdStartString="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" rewritePrefix="xhtml11-flat.dtd" />
   </group>
 </catalog>
