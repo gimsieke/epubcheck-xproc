@@ -1,3 +1,6 @@
+THIS IS OBSOLETE AS OF (at least) 2014. PLEASE VISIT https://github.com/transpect/epubcheck-transpect
+FOR AN ALTERNATIVE AND MORE UP-TO-DATE IMPLEMENTATION THAT CREATES AN HTML REPORT.
+
 This is a reimplementation and extension of epubcheck, using 
 XML Calabash and Saxon.
 
